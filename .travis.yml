@@ -9,7 +9,7 @@ before_install:
   - export NOKOGIRI_USE_SYSTEM_LIBRARIES=true
 
 install:
-  - gem install html-proof
+  - gem install html-proofer
 
 script:
   - htmlproofer ./dist $(tests/html-args.sh)
