@@ -5,6 +5,5 @@ while read line; do printf -- "--$line "; done <<-EOF
   check-sri
   check_img_http
   check-html
-  report-invalid-tags
   report_missing_names
 EOF
