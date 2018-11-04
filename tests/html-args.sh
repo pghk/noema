@@ -6,4 +6,5 @@ while read line; do printf -- "--$line "; done <<-EOF
   check_img_http
   check-html
   report_missing_names
+  http-status-ignore 999
 EOF
