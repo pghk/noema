@@ -4,9 +4,11 @@
 
 <style>
 	nav {
-		border-bottom: 1px solid rgba(255,62,0,0.1);
+		border-bottom: 1px solid rgba(41,121,255,0.1);
 		font-weight: 300;
 		padding: 0 1em;
+		display: flex;
+		justify-content: right;
 	}
 
 	ul {
@@ -36,7 +38,7 @@
 		content: '';
 		width: calc(100% - 1em);
 		height: 2px;
-		background-color: rgb(255,62,0);
+		background-color: rgb(41,121,255);
 		display: block;
 		bottom: -1px;
 	}
@@ -45,6 +47,7 @@
 		text-decoration: none;
 		padding: 1em 0.5em;
 		display: block;
+		color: inherit;
 	}
 </style>
 
