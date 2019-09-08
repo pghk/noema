@@ -8,8 +8,8 @@
   },
   "scripts": {
     "clean": "rm -rf data __sapper__",
-    "hydrate": "node -r dotenv/config scripts/build.js",
-    "dev": "sapper dev --hot=false",
+    "hydrate": "NODE_ENV=development node -r dotenv/config scripts/build.js",
+    "dev": "npm run hydrate && sapper dev --hot=false",
     "build": "sapper build",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",

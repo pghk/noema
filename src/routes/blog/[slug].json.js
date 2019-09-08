@@ -1,28 +1,33 @@
+let md = require('markdown-it')('commonmark');
 import posts from './_posts.js';
 
 const lookup = new Map();
-posts.forEach(post => {
-	lookup.set(post.slug, JSON.stringify(post));
-});
 
-export function get(req, res, next) {
-	// the `slug` parameter is available because
-	// this file is called [slug].json.js
+export async function get(req, res, next) {
 	const { slug } = req.params;
+	posts().then(
+		value => {
+			JSON.parse(value).forEach(post => {
+				post.fields.body = md.render(post.fields.body || '');
+				lookup.set(post.fields.slug, JSON.stringify(post));
+			});
 
-	if (lookup.has(slug)) {
-		res.writeHead(200, {
-			'Content-Type': 'application/json'
-		});
+			if (lookup.has(slug)) {
+				res.writeHead(200, {
+					'Content-Type': 'application/json'
+				});
 
-		res.end(lookup.get(slug));
-	} else {
-		res.writeHead(404, {
-			'Content-Type': 'application/json'
-		});
+				res.end(lookup.get(slug));
+			} else {
+				res.writeHead(404, {
+					'Content-Type': 'application/json'
+				});
 
-		res.end(JSON.stringify({
-			message: `Not found`
-		}));
-	}
+				res.end(JSON.stringify({
+					message: `Not found`
+				}));
+			}
+		},
+		reason => console.log(reason)
+	);
 }

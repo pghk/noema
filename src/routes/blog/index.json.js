@@ -1,16 +1,21 @@
 import posts from './_posts.js';
 
-const contents = JSON.stringify(posts.map(post => {
-	return {
-		title: post.title,
-		slug: post.slug
-	};
-}));
+export async function get(req, res) {
+	const contents = await new Promise((resolve, reject) => {
+		posts().then(
+			value => resolve(JSON.parse(value).map(post => {
+				return {
+					title: post.fields.title,
+					slug: post.fields.slug
+				};
+			})),
+			reason => reject(reason),
+		);
+	});
 
-export function get(req, res) {
 	res.writeHead(200, {
 		'Content-Type': 'application/json'
 	});
 
-	res.end(contents);
+	res.end(JSON.stringify(contents));
 }
