@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "clean": "rm -rf __sapper__",
+    "clean": "rm -rf data __sapper__",
     "hydrate": "node -r dotenv/config scripts/build.js",
     "dev": "sapper dev --hot=false",
     "build": "sapper build",
