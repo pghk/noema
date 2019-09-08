@@ -1,15 +1,27 @@
+const fs = require('fs');
 const keychain = require('./keychain.js');
 const Airtable = require("airtable");
 
+const outputPath = 'data';
+
 let writePosts = function (posts) {
-    console.log(posts);
+    let file = 'posts.json';
+    fs.mkdir(outputPath, () => {
+        fs.writeFile(outputPath + '/' + file, posts, error => {
+            if (error) {
+                console.error(`Error writing ${file}: ${error}`);
+            } else {
+                console.log(`${file} written`);
+            }
+        })
+    });
 };
 
 let processRecords = function (records) {
     let posts = records.map((record) => {
         return record._rawJson;
     });
-    writePosts(posts);
+    writePosts(JSON.stringify(posts, null, '\t'));
 };
 
 let getData = function () {
@@ -26,3 +38,4 @@ if (process.env.NODE_ENV === 'development') {
 else if (process.env.AIRTABLE_API_KEY) {
     getData();
 }
+
