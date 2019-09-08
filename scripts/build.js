@@ -27,7 +27,7 @@ let processRecords = function (records) {
 let getData = function () {
     let base = new Airtable().base(process.env.AIR_BASE);
     let table = base(process.env.AIR_TABLE);
-    table.select().firstPage().then(response => processRecords(response));
+    table.select({view: 'Published'}).firstPage().then(response => processRecords(response));
 };
 
 if (process.env.NODE_ENV === 'development') {
