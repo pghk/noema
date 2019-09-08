@@ -1,10 +1,21 @@
 const keychain = require('./keychain.js');
 const Airtable = require("airtable");
 
+let writePosts = function (posts) {
+    console.log(posts);
+};
+
+let processRecords = function (records) {
+    let posts = records.map((record) => {
+        return record._rawJson;
+    });
+    writePosts(posts);
+};
+
 let getData = function () {
     let base = new Airtable().base(process.env.AIR_BASE);
     let table = base(process.env.AIR_TABLE);
-    table.select().firstPage().then(r => console.log(r));
+    table.select().firstPage().then(response => processRecords(response));
 };
 
 if (process.env.NODE_ENV === 'development') {
