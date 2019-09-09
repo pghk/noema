@@ -2,16 +2,20 @@ const fs = require('fs');
 const keychain = require('./keychain.js');
 const Airtable = require("airtable");
 
-const outputPath = 'data';
+const BASE = process.env.AIR_BASE;
+const TABLE = 'Blog Posts';
+const VIEW = 'Published';
+
+const OUT_PATH = 'data';
 
 let writePosts = function (posts) {
-    let file = 'posts.json';
-    fs.mkdir(outputPath, () => {
-        fs.writeFile(outputPath + '/' + file, posts, error => {
+    let FILE = 'posts.json';
+    fs.mkdir(OUT_PATH, () => {
+        fs.writeFile(OUT_PATH + '/' + FILE, posts, error => {
             if (error) {
-                console.error(`Error writing ${file}: ${error}`);
+                console.error(`Error writing ${FILE}: ${error}`);
             } else {
-                console.log(`${file} written`);
+                console.log(`${FILE} written`);
             }
         })
     });
@@ -25,9 +29,9 @@ let processRecords = function (records) {
 };
 
 let getData = function () {
-    let base = new Airtable().base(process.env.AIR_BASE);
-    let table = base(process.env.AIR_TABLE);
-    table.select({view: 'Published'}).firstPage().then(response => processRecords(response));
+    let base = new Airtable().base(BASE);
+    let table = base(TABLE);
+    table.select({view: VIEW}).firstPage().then(response => processRecords(response));
 };
 
 if (process.env.NODE_ENV === 'development') {
