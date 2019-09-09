@@ -9,13 +9,17 @@
   "scripts": {
     "clean": "rm -rf data __sapper__",
     "hydrate": "NODE_ENV=development node -r dotenv/config scripts/build.js",
-    "dev": "npm run hydrate && sapper dev --hot=false",
-    "build": "sapper build",
+    "start:dev": "npm run hydrate && sapper dev --hot=false",
+    "sapper:build": "sapper build",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "export": "sapper export"
+    "export": "sapper export",
+    "watch:tailwind": "postcss static/tailwind.css -o static/index.css -w",
+    "build:tailwind": "NODE_ENV=production postcss static/tailwind.css -o public/index.css",
+    "dev": "run-p start:dev watch:tailwind",
+    "build": "run-s build:tailwind sapper-build"
   },
   "repository": {
     "type": "git",
