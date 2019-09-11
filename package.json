@@ -7,19 +7,21 @@
     "test": "tests"
   },
   "scripts": {
-    "clean": "rm -rf data __sapper__",
-    "hydrate": "NODE_ENV=development node -r dotenv/config scripts/build.js",
-    "start:dev": "npm run hydrate && sapper dev --hot=false",
-    "sapper:build": "sapper build",
+    "clean": "rm -rf data __sapper__ static/index.css",
+    "hydrate": "node -r dotenv/config scripts/build.js",
+    "build:tailwind": "postcss static/global.css -o static/index.css",
+    "build:sapper": "sapper build",
+    "build_all": "run-s hydrate build:*",
+    "test:run": "cypress run",
+    "test:open": "cypress open",
+    "watch:tailwind": "postcss static/global.css -o static/index.css -w",
+    "watch:dev": "npm run hydrate && sapper dev --hot=false",
+    "dev_all": "run-p hydrate watch:* --aggregate-output",
+    "dev": "NODE_ENV=development npm run dev_all",
+    "test": "run-p --race dev test:run",
+    "build": "NODE_ENV=production npm run build_all",
     "start": "node __sapper__/build",
-    "cy:run": "cypress run",
-    "cy:open": "cypress open",
-    "test": "run-p --race dev cy:run",
-    "export": "sapper export",
-    "watch:tailwind": "postcss static/tailwind.css -o static/index.css -w",
-    "build:tailwind": "NODE_ENV=production postcss static/tailwind.css -o public/index.css",
-    "dev": "run-p start:dev watch:tailwind",
-    "build": "run-s build:tailwind sapper-build"
+    "export": "sapper export"
   },
   "repository": {
     "type": "git",
