@@ -14,12 +14,6 @@ const preprocess = sveltePreprocess({
 });
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const tailwindcss = require("tailwindcss");
-const purgecss = require("@fullhuman/postcss-purgecss")({
-	content: ["./src/**/*.svelte", "./public/**/*.html"],
-	defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
-});
-
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 
@@ -56,8 +50,7 @@ module.exports = {
 								hmr: dev,
 							},
 						},
-						'css-loader',
-						'postcss-loader',
+						'css-loader'
 					],
 				}
 			]
