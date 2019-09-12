@@ -3,6 +3,23 @@ const path = require('path');
 const config = require('sapper/config/webpack.js');
 const pkg = require('./package.json');
 
+const sveltePreprocess = require('svelte-preprocess');
+const preprocess = sveltePreprocess({
+	postcss: {
+		plugins: [
+			require("postcss-import"),
+			require("tailwindcss")
+		]
+	}
+});
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const tailwindcss = require("tailwindcss");
+const purgecss = require("@fullhuman/postcss-purgecss")({
+	content: ["./src/**/*.svelte", "./public/**/*.html"],
+	defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
+});
+
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 
@@ -24,9 +41,24 @@ module.exports = {
 						options: {
 							dev,
 							hydratable: true,
-							hotReload: false // pending https://github.com/sveltejs/svelte/issues/2377
+							preprocess,
+							emitCss: true,
+							hotReload: false, // pending https://github.com/sveltejs/svelte/issues/2377
 						}
 					}
+				},
+				{
+					test: /\.css$/,
+					use: [
+						{
+							loader: MiniCssExtractPlugin.loader,
+							options: {
+								hmr: dev,
+							},
+						},
+						'css-loader',
+						'postcss-loader',
+					],
 				}
 			]
 		},
@@ -37,6 +69,10 @@ module.exports = {
 			new webpack.DefinePlugin({
 				'process.browser': true,
 				'process.env.NODE_ENV': JSON.stringify(mode)
+			}),
+			new MiniCssExtractPlugin({
+				filename: dev ? '[name].css' : '[name].[hash].css',
+				chunkFilename: dev ? '[id].css' : '[id].[hash].css',
 			}),
 		].filter(Boolean),
 		devtool: dev && 'inline-source-map'
@@ -57,7 +93,8 @@ module.exports = {
 						options: {
 							css: false,
 							generate: 'ssr',
-							dev
+							dev,
+							preprocess,
 						}
 					}
 				}
