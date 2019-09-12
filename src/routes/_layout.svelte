@@ -7,6 +7,9 @@
 
 <style>
 	main {
+		@apply bg-blue-300;
+		@apply text-white;
+		/* @apply font-bold; */
 		position: relative;
 		max-width: 56em;
 		padding: 2em;
