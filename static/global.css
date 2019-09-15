@@ -2,18 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face{
+	font-family: 'Source Serif Variable';
+	font-weight: 200 900;
+	font-style: normal;
+	font-stretch: normal;
+	src: url('assets/fonts/woff2/SourceSerifVariable-Roman.ttf.woff2') format('woff2'),
+	url('assets/fonts/woff/SourceSerifVariable-Roman.ttf.woff') format('woff'),
+	url('assets/fonts/ttf/SourceSerifVariable-Roman.ttf') format('truetype');
+}
+
+@font-face{
+	font-family: 'Source Serif Variable';
+	font-weight: 200 900;
+	font-style: italic;
+	font-stretch: normal;
+	src: url('assets/fonts/woff2/SourceSerifVariable-Italic.ttf.woff2') format('woff2'),
+	url('assets/fonts/woff/SourceSerifVariable-Italic.ttf.woff') format('woff'),
+	url('assets/fonts/ttf/SourceSerifVariable-Italic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Secuela';
+	src: url(assets/fonts/ttf/Secuela-Regular-v_1_787-TTF-VF.ttf) format("woff2-variations");
+	font-weight: normal; font-style: normal;
+}
+
+@font-face {
+	font-family: 'Secuela';
+	src: url(assets/fonts/woff2/Secuela-Italic-v_1_787-TTF-VF.woff2) format("woff2-variations");
+	font-weight: normal; font-style: italic;
+}
+
 body {
 	margin: 0;
 	background-color: #fafafa;
 	color: #263238;
-	@apply font-mono;
-	font-size: 14px;
 	line-height: 1.5;
+	@apply font-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 0.5em 0;
-	font-weight: 400;
+	@apply font-bold;
+	@apply font-serif;
+	font-variation-settings: 'wght' 800;
 	line-height: 1.2;
 }
 
@@ -32,10 +66,4 @@ code {
 	background-color: #f0f0f0;
 	padding: 0.2em 0.4em;
 	border-radius: 2px;
-}
-
-@media (min-width: 400px) {
-	body {
-		font-size: 16px;
-	}
 }

@@ -24,8 +24,10 @@
 	}
 
 	li {
+		@apply font-sans;
 		display: block;
 		float: left;
+		text-transform: uppercase;
 	}
 
 	.selected {
