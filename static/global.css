@@ -35,6 +35,10 @@
 	font-weight: normal; font-style: italic;
 }
 
+html {
+	font-size: calc((2rem + 2vw) / 3);
+}
+
 body {
 	margin: 0;
 	background-color: #fafafa;
