@@ -4,7 +4,11 @@
 
 <style>
 	nav {
-		border-bottom: 1px solid rgba(41,121,255,0.1);
+		@apply border-b-2;
+		@apply border-solid;
+		@apply border-color-a-1;
+		@apply text-color-a-5;
+		/*border-bottom: 1px solid rgba(41,121,255,0.1);*/
 		font-weight: 300;
 		padding: 0 1em;
 		display: flex;
@@ -40,7 +44,8 @@
 		content: '';
 		width: calc(100% - 1em);
 		height: 2px;
-		background-color: rgb(41,121,255);
+		@apply bg-color-b-5;
+		/*background-color: rgb(41,121,255);*/
 		display: block;
 		bottom: -1px;
 	}
