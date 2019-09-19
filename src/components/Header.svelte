@@ -1,10 +1,11 @@
 <style>
     header {
         @apply font-sans;
+        @apply bg-color-a-5;
         padding: 2rem 2rem 0 2rem;
     }
     p {
-        @apply text-color-a-4;
+        @apply text-color-dark-2;
         @apply text-3xl;
         font-variation-settings: 'wght' 900;
         text-transform: uppercase;
@@ -12,7 +13,7 @@
         line-height: 2rem;
     }
     span {
-        @apply text-color-b-4;
+        @apply text-color-c-4;
         font-variation-settings: 'wght' 500;
         font-variant: all-small-caps;
         letter-spacing: .2rem;

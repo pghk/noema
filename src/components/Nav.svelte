@@ -6,8 +6,9 @@
 	nav {
 		@apply border-b-2;
 		@apply border-solid;
-		@apply border-color-a-1;
-		@apply text-color-a-5;
+		@apply border-color-b-4;
+		@apply text-color-light-3;
+		@apply bg-color-a-5;
 		/*border-bottom: 1px solid rgba(41,121,255,0.1);*/
 		font-weight: 300;
 		padding: 0 1em;
@@ -44,7 +45,7 @@
 		content: '';
 		width: calc(100% - 1em);
 		height: 2px;
-		@apply bg-color-b-5;
+		@apply bg-color-c-5;
 		/*background-color: rgb(41,121,255);*/
 		display: block;
 		bottom: -1px;
