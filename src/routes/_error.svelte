@@ -14,7 +14,7 @@
 	h1 {
 		@apply text-color-error-5;
 		font-size: 2.8em;
-		font-weight: 700;
+		font-variation-settings: 'wght' 900;
 		margin: 0 0 0.5em 0;
 	}
 

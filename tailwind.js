@@ -1,10 +1,11 @@
+const { fontFamily, colors } = require('tailwindcss/defaultTheme');
 module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Source Sans Variable'],
-        'serif': ['Source Serif Variable'],
-        'mono': ['Consolas'],
+        'sans': ['Source Sans Variable', ...fontFamily.sans],
+        'serif': ['Source Serif Variable', ...fontFamily.serif],
+        'mono': ['Consolas', ...fontFamily.mono],
       },
       colors: {
         'color-light': {
