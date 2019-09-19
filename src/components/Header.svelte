@@ -21,5 +21,5 @@
 </style>
 
 <header>
-    <p>Paul Hendrick</p><span>Web Developments <span class="font-mono">&lt;&equals;&gt;</span>
+    <p>Paul Hendrick</p><span>~ Fine Web Developments ~</span>
 </header>
