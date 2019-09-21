@@ -1,6 +1,6 @@
 <script>
 	import Nav from '../components/Nav.svelte';
-	import Header from '../components/Header.svelte';
+	import Logotype from '../components/Logotype.svelte';
 
 	export let segment;
 </script>
@@ -15,7 +15,7 @@
 	}
 </style>
 
-<Header />
+<Logotype />
 <Nav {segment}/>
 
 <main>
