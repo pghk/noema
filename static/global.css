@@ -28,7 +28,8 @@
 	font-weight: 200 900;
 	font-style: normal;
 	font-stretch: normal;
-	src: url('assets/fonts/SourceSansVariable-Roman.otf') format('woff2'),
+	src: url('assets/fonts/woff2/SourceSansVariable-Roman.otf.woff2') format('woff2'),
+	url('assets/fonts/otf/SourceSansVariable-Roman.otf') format('opentype'),
 	url('assets/fonts/ttf/SourceSansVariable-Roman.ttf') format('truetype');
 }
 
@@ -37,7 +38,8 @@
 	font-weight: 200 900;
 	font-style: italic;
 	font-stretch: normal;
-	src: url('assets/fonts/SourceSansVariable-Italic.otf') format('woff2'),
+	src: url('assets/fonts/woff2/SourceSansVariable-Italic.otf.woff2') format('woff2'),
+	url('assets/fonts/otf/SourceSansVariable-Italic.otf') format('opentype'),
 	url('assets/fonts/ttf/SourceSansVariable-Italic.ttf') format('truetype');
 }
 
