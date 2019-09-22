@@ -1,15 +1,19 @@
 <script>
 	export let segment;
+
+	import { draw } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+
 </script>
 
 <style>
 	nav {
-		@apply border-b-2;
-		@apply border-solid;
-		@apply border-color-light-2;
-		/*@apply text-color-light-3;*/
-		/*border-bottom: 1px solid rgba(41,121,255,0.1);*/
 		font-weight: 300;
+		/* background stroke is color-light-4: #C6C8DB */
+		background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 6" xmlns="http://www.w3.org/2000/svg"><path d="M0 3 H 100" fill="none" stroke="%23C6C8DB" stroke-width=".1px"/></svg>');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
 	}
 
 	ul {
@@ -47,26 +51,11 @@
 		@apply text-color-error-5;
 	}
 
-	.selected {
-		position: relative;
-		display: inline-block;
-	}
-
-	.selected::after {
-		position: absolute;
-		content: '';
-		width: calc(100% - 1em);
-		height: 2px;
-		@apply bg-color-c-5;
-		/*background-color: rgb(41,121,255);*/
-		display: block;
-		bottom: -1px;
-	}
-
 	a {
+        @apply bg-color-light-1;
 		text-decoration: none;
-		padding: 1em 0.5em;
-		display: block;
+		padding: 1em;
+		display: inline-block;
 		color: inherit;
 	}
 </style>

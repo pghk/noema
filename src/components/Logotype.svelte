@@ -3,7 +3,7 @@
     #logotype {
         @apply text-color-a-5;
         fill: currentColor;
-        margin: 3rem auto 0 auto;
+        margin: 3rem auto 1.5rem auto;
         width: 42rem;
         max-width: calc(100vw - 4rem);
     }
