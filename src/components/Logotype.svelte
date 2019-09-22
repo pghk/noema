@@ -3,7 +3,7 @@
     #logotype {
         @apply text-color-a-5;
         fill: currentColor;
-        margin: 3rem auto;
+        margin: 3rem auto 0 auto;
         width: 42rem;
         max-width: calc(100vw - 4rem);
     }
@@ -15,7 +15,7 @@
         font-variation-settings: 'wght' 500;
         font-variant: all-small-caps;
         letter-spacing: .2rem;
-        @apply text-color-b-5;
+        @apply text-color-light-5;
     }
 
     .tagline::before {
