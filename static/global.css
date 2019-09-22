@@ -4,6 +4,26 @@
 
 
 @font-face{
+    font-family: 'Source Serif Subset';
+    font-weight: 200 900;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('assets/fonts/subsets/SourceSerifVariable-Roman-subset.woff2') format('woff2'),
+    url('assets/fonts/subsets/SourceSerifVariable-Roman-subset.zopfli.woff') format('woff'),
+    url('assets/fonts/subsets/SourceSerifVariable-Roman-subset.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Source Sans Subset';
+    font-weight: 200 900;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('assets/fonts/subsets/SourceSansVariable-Roman-subset.woff2') format('woff2'),
+    url('assets/fonts/subsets/SourceSansVariable-Roman-subset.zopfli.woff') format('woff'),
+    url('assets/fonts/subsets/SourceSansVariable-Roman-subset.ttf') format('truetype');
+}
+
+@font-face{
 	font-family: 'Source Serif Variable';
 	font-weight: 200 900;
 	font-style: normal;
