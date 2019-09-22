@@ -1,12 +1,30 @@
 <!--suppress CheckEmptyScriptTag -->
 <style>
+    #logotype {
+        @apply text-color-a-5;
+        fill: currentColor;
+        margin: 3rem auto;
+        width: 42rem;
+        max-width: calc(100vw - 4rem);
+    }
+
     .tagline {
+        margin-top: 1rem;
+        text-align: center;
         @apply font-sans;
         font-variation-settings: 'wght' 500;
         font-variant: all-small-caps;
         letter-spacing: .2rem;
-        @apply text-color-c-4;
+        @apply text-color-b-5;
     }
+
+    .tagline::before {
+        content: '~ ';
+    }
+    .tagline::after {
+        content: ' ~';
+    }
+
 </style>
 
 <div id="logotype">
@@ -28,5 +46,5 @@
             <path id="logo-k" d="M172.213 6.502l3.352-3.21c.37-.353.37-.6-.018-.97L173.466.276c-.388-.37-.635-.37-1.006.017l-4.04 4.163h-1.851l.017-2.91c0-.512-.176-.688-.705-.688h-2.946c-.53 0-.705.176-.705.705v9.913c0 .53.176.706.705.706h2.946c.529 0 .705-.177.705-.688l-.017-2.946h1.675l4.216 4.216c.37.37.618.37.97.018l2.205-2.223c.353-.353.353-.6-.035-.952z"/>
         </g>
     </svg>
-    <p class="tagline">~ Fine Web Developments ~</p>
+    <p class="tagline">Fine Web Developments</p>
 </div>
