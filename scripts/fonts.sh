@@ -1,35 +1,42 @@
 #!/usr/bin/env sh
 
 FONT_DIR='./static/fonts'
-SANS_NAME="SourceSansVariable-Roman"
-SERIF_NAME="SourceSerifVariable-Roman"
 
-function base_params() {
-  local FILE="$1/src/${2}.ttf"
-  local FLAVOR="--flavor=woff --with-zopfli"
-  echo "$FILE --output-file=$1/build/sub.${2}.woff $FLAVOR"
+ROMAN_SANS="SourceSansVariable-Roman"
+ROMAN_SERIF="SourceSerifVariable-Roman"
+ITALIC_SANS="SourceSansVariable-Italic"
+ITALIC_SERIF="SourceSerifVariable-Italic"
+
+# Sans-serif subset: uppercase glyphs & small caps feature
+SANS_PARAMS=(--layout-features=c2sc --no-hinting --desubroutinize)
+SANS_SET=(--unicodes=U+41-5A,U+7B-7E)
+
+# Serif subset: upper-and-lowercase glyphs & kerning
+SERIF_PARAMS=(--layout-features=kern --no-hinting --desubroutinize)
+SERIF_SET=(--unicodes=U+41-5A,U+61-7A)
+
+# Optimized set: All features & Latin glyphs
+OPT_FULL=(--unicodes=$(glyphhanger --LATIN) --layout-features='*')
+
+# Helps assemble common command options
+function subset_base() {
+  local FILE="${1}/src/${3}.ttf"
+  echo "$FILE --output-file=${1}/build/${2}.${3}.${4} --flavor=${4} ${5}"
 }
 
-SANS_PARAMS=(--layout-features=c2sc --no-hinting --desubroutinize)
-SANS_CODES=(--unicodes=U+41-5A,U+7B-7E)
+echo "Generating font files..."
 
-SERIF_PARAMS=(--layout-features=kern --no-hinting --desubroutinize)
-SERIF_CODES=(--unicodes=U+41-5A,U+61-7A)
+echo "subset: $ROMAN_SANS" # Generate the sans subset (Roman only)
+pyftsubset $(subset_base $FONT_DIR "sub" $ROMAN_SANS "woff" "--with-zopfli") $SANS_PARAMS $SANS_SET
 
-FULL=(--unicodes=$(glyphhanger --LATIN) --layout-features='*')
+echo "subset: $ROMAN_SERIF" # Generate the serif subset (Roman only)
+pyftsubset $(subset_base $FONT_DIR "sub" $ROMAN_SERIF "woff" "--with-zopfli") $SERIF_PARAMS $SERIF_SET
 
-echo "Generating derivative font files..."
-echo "subset: $SANS_NAME"
-pyftsubset $(base_params $FONT_DIR $SANS_NAME) ${SANS_PARAMS[@]} ${SANS_CODES[@]}
-echo "subset: $SERIF_NAME"
-pyftsubset $(base_params $FONT_DIR $SERIF_NAME) ${SERIF_PARAMS[@]} ${SERIF_CODES[@]}
+# Generate optimized full sets of sans & serif, in Roman and italic
+for FONT in $ROMAN_SANS $ROMAN_SERIF $ITALIC_SANS $ITALIC_SERIF; do
+  echo "optimized: $FONT woff (with zopfli)" # Wider support
+  pyftsubset $(subset_base $FONT_DIR "opt" $FONT "woff" "--with-zopfli") $OPT_FULL
 
-for FONT in $SANS_NAME $SERIF_NAME SourceSansVariable-Italic SourceSerifVariable-Italic
-  do
-    echo "optimized: $FONT woff (with zopfli)"
-    pyftsubset $FONT_DIR/src/$FONT.ttf $FULL --flavor=woff --with-zopfli\
-     --output-file=$FONT_DIR/build/opt.$FONT.woff
-    echo "optimized: $FONT woff2"
-    pyftsubset $FONT_DIR/src/$FONT.ttf $FULL --flavor=woff2\
-     --output-file=$FONT_DIR/build/opt.$FONT.woff2
-  done
+  echo "optimized: $FONT woff2" # Greater compression
+  pyftsubset $(subset_base $FONT_DIR "opt" $FONT "woff2" "") $OPT_FULL
+done
