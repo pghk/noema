@@ -10,7 +10,7 @@ html {
 body {
 	margin: 0;
 	@apply bg-color-light-1;
-	@apply text-color-dark-7;
+	@apply text-color-dark-5;
 	@apply font-serif;
 	line-height: 1.3rem;
 }

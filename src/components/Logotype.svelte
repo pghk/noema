@@ -16,7 +16,7 @@
         font-variant: small-caps;
         text-transform: uppercase;
         letter-spacing: .2rem;
-        @apply text-color-light-7;
+        @apply text-color-a-4;
     }
 
     .tagline::before {
