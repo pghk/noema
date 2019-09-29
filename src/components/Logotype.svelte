@@ -14,6 +14,7 @@
         @apply font-sans;
         font-variation-settings: 'wght' 500;
         font-variant: all-small-caps;
+        text-transform: uppercase;
         letter-spacing: .2rem;
         @apply text-color-light-5;
     }

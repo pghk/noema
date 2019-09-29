@@ -1,9 +1,3 @@
-<style>
-    p {
-        @apply font-sans;
-    }
-</style>
-
 <svelte:head>
 	<title>Paul G. Hendrick</title>
 </svelte:head>
