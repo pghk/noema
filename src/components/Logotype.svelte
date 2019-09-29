@@ -29,9 +29,9 @@
 </style>
 
 <div id="logotype">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175.895 13.126" role="img" aria-labelledby="title desc">
-        <title>Paul Hendrick</title>
-        <desc>Logotype</desc>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175.895 13.126" role="img" aria-labelledby="logo-title logo-desc">
+        <title id="logo-title">Paul Hendrick</title>
+        <desc id="logo-desc">Dark blue text in bold capital letters</desc>
         <g role="presentation">
             <path id="logo-p" d="M4.304 10.206l3.722.036c.511 0 .811-.124 1.182-.494l2.134-2.1c.37-.37.494-.67.494-1.199V4.668c0-.53-.124-.83-.494-1.2l-2.1-2.099C8.873 1 8.573.875 8.062.875L.688.858C.176.858 0 1.034 0 1.563v9.913c0 .53.176.706.688.706l2.928-.018c.511 0 .688-.176.688-.705zm0-5.38h2.47l.6.635v.336l-.548.564H4.304z"/>
             <path id="logo-a" d="M26.522 5.48c0-.53-.124-.83-.477-1.2l-2.91-3.07c-.37-.388-.67-.529-1.2-.529H18.69c-.53 0-.829.124-1.182.494l-2.98 3.14c-.353.37-.477.67-.477 1.182l-.018 5.997c0 .512.177.688.706.688h2.84c.529 0 .688-.176.688-.723l-.018-1.2h4.04l-.036 1.235c-.018.53.159.688.67.688l2.91-.018c.512 0 .689-.176.689-.705zm-4.18.652l-.054.494H18.25V6.06l2.046-1.87z"/>
