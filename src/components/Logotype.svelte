@@ -12,11 +12,11 @@
         margin-top: 1rem;
         text-align: center;
         @apply font-sans;
-        font-variation-settings: 'wght' 500;
+        font-weight: bold;
         font-variant: small-caps;
         text-transform: uppercase;
         letter-spacing: .2rem;
-        @apply text-color-light-5;
+        @apply text-color-light-7;
     }
 
     .tagline::before {
