@@ -28,7 +28,7 @@
 
 </style>
 
-<div id="logotype">
+<header id="logotype">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175.895 13.126" role="img" aria-labelledby="logo-title logo-desc">
         <title id="logo-title">Paul Hendrick</title>
         <desc id="logo-desc">Dark blue text in bold capital letters</desc>
@@ -48,4 +48,4 @@
         </g>
     </svg>
     <p class="tagline">Fine Web Developments</p>
-</div>
+</header>
