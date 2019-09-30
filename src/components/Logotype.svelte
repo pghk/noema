@@ -3,20 +3,20 @@
     #logotype {
         @apply text-color-a-5;
         fill: currentColor;
-        margin: 3rem auto 1.5rem auto;
+        margin: 3rem auto 1.1rem auto;
         width: 42rem;
         max-width: calc(100vw - 4rem);
     }
 
     .tagline {
-        margin-top: 1rem;
+        margin: 1.4rem 0 2.8rem 0;
         text-align: center;
         @apply font-sans;
-        font-weight: bold;
+        font-weight: 400;
         font-variant: small-caps;
         text-transform: uppercase;
-        letter-spacing: .2rem;
-        @apply text-color-a-4;
+        letter-spacing: 1.5vw;
+        @apply text-xs;
     }
 
     .tagline::before {
