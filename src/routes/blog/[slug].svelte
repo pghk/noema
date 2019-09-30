@@ -54,7 +54,8 @@
 </style>
 
 <svelte:head>
-	<title>{post.title}</title>
+	<title>{post.fields.title}</title>
+	<meta name="Description" content="Todo: add this field to the blog table">
 </svelte:head>
 
 <h1>{post.fields.title}</h1>

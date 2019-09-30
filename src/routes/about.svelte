@@ -1,5 +1,6 @@
 <svelte:head>
-	<title>About</title>
+	<title>pghk | about</title>
+	<meta name="Description" content="Paul Hendrick is a web developer.">
 </svelte:head>
 
 <h1>About this site</h1>

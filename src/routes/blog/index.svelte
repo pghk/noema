@@ -18,7 +18,8 @@
 </style>
 
 <svelte:head>
-	<title>Blog</title>
+	<title>pghk | blog</title>
+	<meta name="Description" content="Title: Meandrous Musings, Author: Paul G. Hendrick">
 </svelte:head>
 
 <h1>Recent posts</h1>
