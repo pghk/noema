@@ -4,4 +4,10 @@ node_js:
 addons:
   apt:
     packages:
+      - libgconf-2-4
       - libsecret-1-dev
+cache:
+  npm: true
+  directories:
+    # folder with Cypress binary
+    - ~/.cache
