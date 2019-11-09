@@ -34,12 +34,12 @@ let getData = function () {
     table.select({view: VIEW}).firstPage().then(response => processRecords(response));
 };
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.AIRTABLE_API_KEY) {
+    getData();
+}
+else if (process.env.NODE_ENV === 'development') {
     keychain(process.env.KC_SERVICE, process.env.KC_ACCOUNT)
         .then(r => {process.env.AIRTABLE_API_KEY = r})
             .then(() => getData());
-}
-else if (process.env.AIRTABLE_API_KEY) {
-    getData();
 }
 
