@@ -1,3 +1,9 @@
+<style>
+	h1 {
+		@apply text-2xl;
+	}
+</style>
+
 <svelte:head>
 	<title>pghk | about</title>
 	<meta name="Description" content="Paul Hendrick is a web developer.">

@@ -18,17 +18,14 @@
 </script>
 
 <style>
-	/*
-		By default, CSS is locally scoped to the component,
-		and any unused styles are dead-code-eliminated.
-		In this page, Svelte can't know which elements are
-		going to appear inside the {{{post.html}}} block,
-		so we have to use the :global(...) modifier to target
-		all elements inside .content
-	*/
+	:global(h1) {
+		@apply text-2xl;
+	}
 	.content :global(h2) {
-		font-size: 1.4em;
-		font-weight: 500;
+		@apply text-xl;
+	}
+	.content :global(h3) {
+		@apply text-lg;
 	}
 
 	.content :global(pre) {
