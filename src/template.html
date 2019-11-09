@@ -68,7 +68,7 @@
 	     initialise the router -->
 	%sapper.scripts%
 	<script>
-		let fontFactory = (name, style) => {
+		let font = (name, style) => {
 			let fileName = `fonts/build/opt.${name.split(' ').join('')}-${style}`;
 			let source = `url('${fileName}.woff2') format('woff2'), url('${fileName}.woff') format('woff')`;
 			let descriptors = {
@@ -79,10 +79,10 @@
 		};
 		if ("fonts" in document) {
 			Promise.all([
-				fontFactory('Source Sans Variable', 'Roman').load(),
-				fontFactory('Source Sans Variable', 'Italic').load(),
-				fontFactory('Source Serif Variable', 'Roman').load(),
-				fontFactory('Source Serif Variable', 'Italic').load()
+				font('Source Sans Variable', 'Roman').load(),
+				font('Source Sans Variable', 'Italic').load(),
+				font('Source Serif Variable', 'Roman').load(),
+				font('Source Serif Variable', 'Italic').load()
 			]).then(fonts => {
 				fonts.forEach(font => {
 					document.fonts.add(font);
