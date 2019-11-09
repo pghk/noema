@@ -31,7 +31,9 @@ let processRecords = function (records) {
 let getData = function () {
     let base = new Airtable().base(BASE);
     let table = base(TABLE);
-    table.select({view: VIEW}).firstPage().then(response => processRecords(response));
+    table.select({view: VIEW}).firstPage()
+        .then(response => processRecords(response))
+        .catch(error => {console.log(error)});
 };
 
 if (process.env.AIRTABLE_API_KEY) {
