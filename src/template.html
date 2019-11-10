@@ -14,14 +14,14 @@
 
 	<link
 		rel="preload"
-	  	href="fonts/build/sub.SourceSansVariable-Roman.woff"
+	  	href="fonts/sub.SourceSansVariable-Roman.woff"
 	  	as="font"
 	  	type="font/woff"
 	  	crossorigin
 	>
 	<link
 		rel="preload"
-	  	href="fonts/build/sub.SourceSerifVariable-Roman.woff"
+	  	href="fonts/sub.SourceSerifVariable-Roman.woff"
 		as="font"
 	  	type="font/woff"
 	  	crossorigin
@@ -36,7 +36,7 @@
 			font-weight: 200 900;
 			font-style: normal;
 			font-stretch: normal;
-			src: url('fonts/build/sub.SourceSansVariable-Roman.woff') format('woff');
+			src: url('fonts/sub.SourceSansVariable-Roman.woff') format('woff');
 			font-display: swap;
 		}
 		@font-face{
@@ -44,7 +44,7 @@
 			font-weight: 200 900;
 			font-style: normal;
 			font-stretch: normal;
-			src: url('fonts/build/sub.SourceSerifVariable-Roman.woff') format('woff');
+			src: url('fonts/sub.SourceSerifVariable-Roman.woff') format('woff');
 			font-display: swap;
 		}
 	</style>
@@ -69,7 +69,7 @@
 	%sapper.scripts%
 	<script>
 		let font = (name, style) => {
-			let fileName = `fonts/build/opt.${name.split(' ').join('')}-${style}`;
+			let fileName = `fonts/opt.${name.split(' ').join('')}-${style}`;
 			let source = `url('${fileName}.woff2') format('woff2'), url('${fileName}.woff') format('woff')`;
 			let descriptors = {
 				'weight': '200 900',
