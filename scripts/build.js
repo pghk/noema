@@ -1,4 +1,5 @@
 const fs = require('fs');
+const keychain = require('./keychain.js');
 const Airtable = require("airtable");
 
 const BASE = process.env.AIR_BASE;
