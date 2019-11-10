@@ -25,23 +25,33 @@ let processRecords = function (records) {
     let posts = records.map((record) => {
         return record._rawJson;
     });
-    writePosts(JSON.stringify(posts, null, '\t'));
+    return JSON.stringify(posts, null, '\t');
 };
 
 let getData = function () {
     let base = new Airtable().base(BASE);
     let table = base(TABLE);
-    table.select({view: VIEW}).firstPage()
-        .then(response => processRecords(response))
-        .catch(error => {console.log(error)});
+    return table.select({view: VIEW}).firstPage()
 };
 
-if (process.env.AIRTABLE_API_KEY) {
-    getData();
-}
-else if (process.env.NODE_ENV === 'development') {
-    keychain(process.env.KC_SERVICE, process.env.KC_ACCOUNT)
-        .then(r => {process.env.AIRTABLE_API_KEY = r})
-            .then(() => getData());
-}
+let checkForKey = () => {
+    return new Promise((resolve, reject) => {
+        if (process.env.AIRTABLE_API_KEY) {
+            resolve();
+        }
+        else if (process.env.NODE_ENV === 'development') {
+            keychain(process.env.KC_SERVICE, process.env.KC_ACCOUNT)
+                .then(r => {process.env.AIRTABLE_API_KEY = r})
+                .then(() => resolve())
+                .catch((e) => reject(e))
+        }
+        else {
+            reject('No Key')
+        }
+    })
+};
+
+checkForKey().then(() => getData()
+    .then(data => writePosts(processRecords(data)))
+    .catch(e => console.error(e)));
 
