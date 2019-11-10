@@ -53,5 +53,8 @@ let checkForKey = () => {
 
 checkForKey().then(() => getData()
     .then(data => writePosts(processRecords(data)))
-    .catch(e => console.error(e)));
+    .catch(e => {
+        console.error(e);
+        process.exitCode = 1;
+    }));
 
