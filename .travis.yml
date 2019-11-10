@@ -11,3 +11,9 @@ cache:
   directories:
     # folder with Cypress binary
     - ~/.cache
+deploy:
+  provider: netlify
+  site: $NETLIFY_SITE
+  auth: $NETLIFY_AUTH
+  edge: true # opt in to dpl v2
+  local_dir: "__sapper__/build/"
