@@ -15,10 +15,8 @@ jobs:
   include:
     - stage: test
       script: npm test
-    - stage: build
+    - stage: build & deploy
       script: npm run build && npm run export
-    - stage: deploy
-      script: skip
       deploy:
         provider: netlify
         site: $NETLIFY_SITE
