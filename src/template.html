@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+	<meta name="theme-color" content="#40476d">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#40476d">
+	<meta name="msapplication-TileColor" content="#40476d">
+
+	%sapper.base%
+
+	<link
+		rel="preload"
+	  	href="fonts/build/sub.SourceSansVariable-Roman.woff"
+	  	as="font"
+	  	type="font/woff"
+	  	crossorigin
+	>
+	<link
+		rel="preload"
+	  	href="fonts/build/sub.SourceSerifVariable-Roman.woff"
+		as="font"
+	  	type="font/woff"
+	  	crossorigin
+	>
+	<link rel="stylesheet" href="index.css" />
+	<link rel='manifest' href='manifest.json'>
+	<link rel='icon' type='image/png' href='favicon.png'>
+
+	<style>
+		@font-face{
+			font-family: 'Source Sans Variable';
+			font-weight: 200 900;
+			font-style: normal;
+			font-stretch: normal;
+			src: url('fonts/build/sub.SourceSansVariable-Roman.woff') format('woff');
+			font-display: swap;
+		}
+		@font-face{
+			font-family: 'Source Serif Variable';
+			font-weight: 200 900;
+			font-style: normal;
+			font-stretch: normal;
+			src: url('fonts/build/sub.SourceSerifVariable-Roman.woff') format('woff');
+			font-display: swap;
+		}
+	</style>
+
+	<!-- Sapper generates a <style> tag containing critical CSS
+	     for the current page. CSS for the rest of the app is
+	     lazily loaded when it precaches secondary pages -->
+	%sapper.styles%
+
+	<!-- This contains the contents of the <svelte:head> component, if
+	     the current page has one -->
+	%sapper.head%
+</head>
+<body>
+	<!-- The application will be rendered inside this element,
+	     because `src/client.js` references it -->
+	<div id='sapper'>%sapper.html%</div>
+
+	<!-- Sapper creates a <script> tag containing `src/client.js`
+	     and anything else it needs to hydrate the app and
+	     initialise the router -->
+	%sapper.scripts%
+	<script>
+		let font = (name, style) => {
+			let fileName = `fonts/build/opt.${name.split(' ').join('')}-${style}`;
+			let source = `url('${fileName}.woff2') format('woff2'), url('${fileName}.woff') format('woff')`;
+			let descriptors = {
+				'weight': '200 900',
+			 	'style': (style === 'Roman') ? 'normal' : 'italic',
+			};
+			return new FontFace(name, source, descriptors);
+		};
+		if ("fonts" in document) {
+			Promise.all([
+				font('Source Sans Variable', 'Roman').load(),
+				font('Source Sans Variable', 'Italic').load(),
+				font('Source Serif Variable', 'Roman').load(),
+				font('Source Serif Variable', 'Italic').load()
+			]).then(fonts => {
+				fonts.forEach(font => {
+					document.fonts.add(font);
+				});
+			});
+		}
+	</script>
+</body>
+</html>
