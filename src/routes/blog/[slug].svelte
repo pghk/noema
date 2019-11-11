@@ -18,15 +18,6 @@
 </script>
 
 <style>
-	:global(h1) {
-		@apply text-2xl;
-	}
-	.content :global(h2) {
-		@apply text-xl;
-	}
-	.content :global(h3) {
-		@apply text-lg;
-	}
 
 	.content :global(pre) {
 		background-color: #f9f9f9;
