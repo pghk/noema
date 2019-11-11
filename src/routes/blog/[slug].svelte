@@ -42,7 +42,6 @@
 	}
 
 	.content :global(ul) {
-		line-height: 1.5;
 	}
 
 	.content :global(li) {

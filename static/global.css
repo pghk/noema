@@ -15,14 +15,12 @@ body {
 	@apply bg-color-light-1;
 	@apply text-color-dark-5;
 	@apply font-serif;
-	line-height: 1.3rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 0.5em 0;
 	@apply font-bold;
 	font-variation-settings: 'wght' 800;
-	line-height: 1.2;
 }
 
 h1 {
