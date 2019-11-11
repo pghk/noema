@@ -32,7 +32,17 @@
 		padding: 0;
 	}
 
+	.content :global(ol) {
+		list-style: decimal;
+	}
+
 	.content :global(ul) {
+		list-style: disc;
+	}
+
+	.content :global(ol),:global(ul) {
+		margin-top: 1rem;
+		padding-left: 2rem;
 	}
 
 	.content :global(li) {
