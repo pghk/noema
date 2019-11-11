@@ -40,7 +40,7 @@
 		list-style: disc;
 	}
 
-	.content :global(ol),:global(ul) {
+	.content :global(ol), .content :global(ul) {
 		margin-top: 1rem;
 		padding-left: 2rem;
 	}
