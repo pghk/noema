@@ -1,5 +1,4 @@
 const fs = require('fs');
-const keychain = require('./keychain.js');
 const Airtable = require("airtable");
 
 const BASE = process.env.AIR_BASE;
@@ -40,6 +39,7 @@ let checkForKey = () => {
             resolve();
         }
         else if (process.env.NODE_ENV === 'development') {
+            const keychain = require('./keychain.js');
             keychain(process.env.KC_SERVICE, process.env.KC_ACCOUNT)
                 .then(r => {process.env.AIRTABLE_API_KEY = r})
                 .then(() => resolve())
