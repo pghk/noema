@@ -18,15 +18,6 @@
 </script>
 
 <style>
-	:global(h1) {
-		@apply text-2xl;
-	}
-	.content :global(h2) {
-		@apply text-xl;
-	}
-	.content :global(h3) {
-		@apply text-lg;
-	}
 
 	.content :global(pre) {
 		background-color: #f9f9f9;
@@ -41,8 +32,17 @@
 		padding: 0;
 	}
 
+	.content :global(ol) {
+		list-style: decimal;
+	}
+
 	.content :global(ul) {
-		line-height: 1.5;
+		list-style: disc;
+	}
+
+	.content :global(ol), .content :global(ul) {
+		margin-top: 1rem;
+		padding-left: 2rem;
 	}
 
 	.content :global(li) {
