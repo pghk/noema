@@ -4,7 +4,7 @@
   "description": "A personal website.",
   "main": "index.js",
   "directories": {
-    "test": "tests"
+    "test": "test"
   },
   "scripts": {
     "clean": "rm -rf data __sapper__ static/index.css",
@@ -12,14 +12,14 @@
     "build:tailwind": "postcss static/global.css -o static/index.css",
     "build:sapper": "sapper build",
     "build_all": "run-s hydrate build:*",
-    "test:unit": "CYPRESS_integrationFolder='.' cypress run --spec \"cypress/unit/*\"",
-    "test:integration": "CYPRESS_baseUrl='http://localhost:3000' cypress run --spec \"cypress/integration/*\"",
+    "test:cypress": "cypress run",
+    "test:integration": "run-p --race dev test:cypress",
     "test:open": "cypress open",
     "watch:tailwind": "postcss static/global.css -o static/index.css -w",
     "watch:dev": "sapper dev --hot=false",
     "dev:start": "run-p hydrate watch:*",
     "dev": "NODE_ENV=development npm run dev:start",
-    "test": "run-p --race dev test:run",
+    "test": "mocha test/unit/**/*.test.js",
     "build": "NODE_ENV=production npm run build_all",
     "start": "node __sapper__/build",
     "export": "sapper export"
