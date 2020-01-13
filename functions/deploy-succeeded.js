@@ -17,4 +17,5 @@ exports.handler = async function(event, context) {
         + "TITLE: " + title + "\n"
         + "CONTEXT: " + context + "\n"
     )
+    return 'ok'
 }
