@@ -11,17 +11,11 @@ cache:
   directories:
     # folder with Cypress binary
     - ~/.cache
-#jobs:
-#  include:
-#    - stage: Test
-#      script: npm test
-#    - stage: Build & Deploy
-#      script: npm run build && npm run export
-#      deploy:
-#        provider: netlify
-#        site: $NETLIFY_SITE
-#        auth: $NETLIFY_AUTH
-#        edge: true # opt in to dpl v2
-#        dir: "__sapper__/export"
-#        on:
-#          branch: dev
+jobs:
+  include:
+    - stage: Unit Tests
+      if: env(CYPRESS_baseUrl) = ""
+      script: npm test
+    - stage: Integration Tests
+      if: env(CYPRESS_baseUrl) != ""
+      script: npm run test:integration
