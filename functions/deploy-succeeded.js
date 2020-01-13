@@ -10,7 +10,7 @@ exports.handler = async function(event, context, callback) {
     `;
     console.log(logMessage);
 
-    const NOTIFY_URL = "https://api.travis-ci.com/repo/"
+    const NOTIFY_URL = "https://api.travis-ci.org/repo/"
         + process.env.GIT_USER + "%2F" + eventData.name + "/requests";
 
     const TEST_SITE = "https://"
