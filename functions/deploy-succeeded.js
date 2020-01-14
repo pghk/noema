@@ -42,7 +42,7 @@ exports.handler = async function(event, context, callback) {
 
     ${res.config.method.toUpperCase()} ${res.config.url} [ ${res.status} ${res.statusText} ]
 
-    ${JSON.stringify(res.data, null, '\t')}
+${JSON.stringify(res.data, null, 4)}
 
 `);
             return callback(null, {statusCode: res.status})
