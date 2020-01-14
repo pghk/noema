@@ -2,15 +2,14 @@ const axios = require('axios');
 
 exports.handler = async function(event, context, callback) {
     const eventData = JSON.parse(event.body).payload;
-    let logMessage = `
+    console.log(`
 
     -- ${eventData.name} ${eventData.context} ${eventData.id} --
     title: ${eventData.title}
     branch: ${eventData.branch}
     commit: ${eventData.commit_ref}
 
-`;
-    console.log(logMessage);
+`);
 
     const NOTIFY_URL = "https://api.travis-ci.org/repo/"
         + process.env.GIT_USER + "%2F" + eventData.name + "/requests";
@@ -39,13 +38,13 @@ exports.handler = async function(event, context, callback) {
         })
     })
         .then(res => {
-            let logMessage = `
+            console.log(`
 
     ${res.config.method.toUpperCase()} ${res.config.url} [ ${res.status} ${res.statusText} ]
-    ${JSON.stringify(res.data, null, 2)}
 
-`;
-            console.log(logMessage);
+    ${JSON.stringify(res.data, null, '\t')}
+
+`);
             return callback(null, {statusCode: res.status})
         })
         .catch(err => {
