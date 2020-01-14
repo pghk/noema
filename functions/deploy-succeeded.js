@@ -36,14 +36,12 @@ exports.handler = async function(event, context, callback) {
             }
         })
     })
-        .then(res => res.json())
-        .then(json => console.log(json))
+        .then(res => {
+            console.log(res.data);
+            return callback(null, {statusCode: res.status})
+        })
         .catch(err => {
             console.log(err);
             return callback(err);
         });
-
-    return callback(null, {
-        statusCode: 200
-    });
 };
