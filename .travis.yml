@@ -14,8 +14,9 @@ cache:
 jobs:
   include:
     - stage: Unit Tests
-      if: env(TEST_TYPE) != "e2e"
+      if: env(TEST_TARGET) == ""
       script: npm test
     - stage: Integration Tests
-      if: env(TEST_TYPE) = "e2e"
+      if: env(TEST_TARGET) != ""
+      before_script: echo "running E2E tests against $TEST_TARGET at $CYPRESS_baseUrl"
       script: npm run test:cypress
