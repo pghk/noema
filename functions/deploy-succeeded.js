@@ -31,7 +31,10 @@ exports.handler = async function(event, context, callback) {
                 'branch': eventData.branch,
                 'message': `Netlify ${eventData.context}`,
                 'config': {
-                    'env': { 'CYPRESS_baseUrl': TEST_SITE }
+                    'env': {
+                        'CYPRESS_baseUrl': TEST_SITE,
+                        'TEST_TYPE': 'e2e'
+                    }
 
                 }
             }
