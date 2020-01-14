@@ -33,7 +33,7 @@ exports.handler = async function(event, context, callback) {
                 'config': {
                     'env': {
                         'CYPRESS_baseUrl': TEST_SITE,
-                        'TEST_TYPE': 'e2e'
+                        'TEST_TARGET': `${eventData.context}`
                     }
 
                 }
