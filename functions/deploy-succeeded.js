@@ -45,7 +45,7 @@ exports.handler = async function(event, context, callback) {
     ${JSON.stringify(res.data, null, 2)}
 
 `;
-            console.log(res.data);
+            console.log(logMessage);
             return callback(null, {statusCode: res.status})
         })
         .catch(err => {
