@@ -1,31 +1,32 @@
-# noema
-[![Build Status](https://travis-ci.org/pghk/noema.svg?branch=dev)](https://travis-ci.org/pghk/noema)
+# no·​e·​ma | \ nōˈēmə \
+*the objective aspect of, or the content within, an intentional experience (naming things is hard ok)*
 
-A personal website.
+[![Travis CI Status](https://img.shields.io/travis/pghk/noema)](https://travis-ci.org/pghk/noema)
+[![Netlify Status](https://img.shields.io/netlify/8aa59343-ad8c-458d-9ce8-6d519ce86c33)](https://app.netlify.com/sites/noema)
 
-## Continuous integration & delivery workflow
+A personal website, built of [Svelte](https://svelte.dev/) components.
 
-### Travis CI
-* runs unit tests on all pull requests
-* runs (Cypress) integration tests against deploy urls, received from Netlify
-* updates PRs with unit test results
+Content is composed locally in markdown and stored in [Airtable](https://airtable.com/). A build process acquires this content before using the [Sapper](https://sapper.svelte.dev/) framework to generate a static site, which is then hosted at [Netlify](https://www.netlify.com/).
 
-### Netlify
-* builds and deploys (to env corresponding with branch) on merge commits
-* receives content update notifications, deploys to preview
-* triggers a post-deploy Lambda function, announcing urls to Travis for integration testing
+## Development
+* new work is done in branches based off `master` named `features/*`, `styles/*`, `bugfixes/*` etc
+* these branches are then pushed to the remote, and pull requested to `master`
+* once their checks pass, PRs are *rebase merged* into `master` and their head branches are deleted
 
-### Example
-1. Pull request from `dev` to `master` is opened
-2. Travis runs unit tests, then updates PR with results
-3. PR is (manually) approved in GitHub, code merges to `master`
-4. Netlify builds a static site (using Sapper export) and deploys to a preview environment
-5. Netlify calls the Travis API, passing the url of the deploy preview
-6. Travis runs integration tests against the deploy preview
-7. Deploy preview is (manually) published in Netlify, updating the live site
+## Automated testing and deployment
+The following steps are triggered when a new pull request is opened:
+1. Travis CI runs unit tests (with [Mocha](https://mochajs.org/))
+2. Netlify gathers content from Airtable and builds the static site with `sapper export`
+3. A Lambda function calls the Travis API, passing the url of the Netlify Deploy Preview
+4. Travis CI runs integration tests (with [Cypress](https://www.cypress.io/)) against the preview url
+
+- [ ] todo: notifications of content updates in Airtable initiate the process at step 2
+
+Auto publishing of deploys in Netlify is not enabled. This will likely remain a manual step, since I ultimately want to trigger rebuilds on content updates, and it seems sensible. For this to change, build responsibility should probably be shifted to Travis so that publishing could be made contingent on E2E tests passing.
 
 ## Todo
-- [ ] Unit tests: right now these are just Cypress, running the same E2E tests against a local node instance that will be run against the static deploy preview
+- [ ] Meaningful tests
+- [ ] Store Cypress-generated build artifacts somewhere, for better review of E2E test results
 - [ ] Footer
 - [ ] Front page content section: Dynamic summary/preview of each section
 - [ ] Header: section icons to switch to text on hover (or active path, where applicable)
