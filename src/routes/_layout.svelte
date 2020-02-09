@@ -1,6 +1,7 @@
 <script>
 	import Nav from '../components/Nav.svelte';
 	import Logotype from '../components/Logotype.svelte';
+	import Footer from "../components/Footer.svelte";
 
 	export let segment;
 </script>
@@ -14,6 +15,9 @@
 		padding: 2em;
 		box-sizing: border-box;
 	}
+	footer {
+		justify-self: end;
+	}
 </style>
 
 <Logotype />
@@ -22,3 +26,5 @@
 <main>
 	<slot></slot>
 </main>
+
+<Footer />
