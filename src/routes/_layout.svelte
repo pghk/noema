@@ -8,9 +8,10 @@
 <style>
 	main {
 		position: relative;
+		width: 100%;
 		max-width: 56em;
+		justify-self: center;
 		padding: 2em;
-		margin: 0 auto;
 		box-sizing: border-box;
 	}
 </style>

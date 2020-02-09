@@ -14,6 +14,7 @@
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center;
+		display: grid;
 	}
 
 	ul {
@@ -21,7 +22,7 @@
 		max-width: calc(100vw - 4rem);
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		margin: 0 auto;
+		justify-self: center;
 		padding: 0;
 	}
 

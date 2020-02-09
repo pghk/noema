@@ -1,15 +1,21 @@
 <!--suppress CheckEmptyScriptTag -->
 <style>
     #logotype {
+        height: 100%;
+        display: grid;
+        grid-template-rows: 3fr 2fr;
         @apply text-color-a-5;
         fill: currentColor;
-        margin: 3rem auto 1.1rem auto;
-        width: 42rem;
-        max-width: calc(100vw - 4rem);
+        align-self: center;
+        justify-self: center;
+        margin: 0 2rem 1rem 2rem;
+        max-width: 42rem;
     }
-
+    svg {
+        align-self: end;
+    }
     .tagline {
-        margin: 1.4rem 0 2.8rem 0;
+        align-self: center;
         text-align: center;
         @apply font-sans;
         font-weight: 400;
