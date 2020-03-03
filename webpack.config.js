@@ -3,6 +3,8 @@ const path = require('path');
 const config = require('sapper/config/webpack.js');
 const pkg = require('./package.json');
 
+const buildInfo = path.resolve('./scripts/buildInfoLoader.js');
+
 const sveltePreprocess = require('svelte-preprocess');
 const preprocess = sveltePreprocess({
 	postcss: {
@@ -28,6 +30,10 @@ module.exports = {
 		resolve: { alias, extensions, mainFields },
 		module: {
 			rules: [
+				{
+					test: /Footer\.svelte$/,
+					use: { loader: buildInfo }
+				},
 				{
 					test: /\.(svelte|html)$/,
 					use: {
@@ -79,6 +85,10 @@ module.exports = {
 		externals: Object.keys(pkg.dependencies).concat('encoding'),
 		module: {
 			rules: [
+				{
+					test: /Footer\.svelte$/,
+					use: { loader: buildInfo }
+				},
 				{
 					test: /\.(svelte|html)$/,
 					use: {
