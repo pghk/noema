@@ -1,17 +1,10 @@
-<script context="module">
-    export function preload({ params, query }) {
-        return this.fetch(`build.json`).then(r => r.json()).then(buildInfo => {
-            return { buildInfo };
-        });
-    }
-</script>
 <script>
     export let
         buildInfo = {
-            "month": "03",
-            "day": "01",
-            "year": "2020",
-            "commitHash": "78d2d6175a22e0d4145a04a0e78f09cb2f344707"
+            "month": "MONTH",
+            "day": "DAY",
+            "year": "YEAR",
+            "commitHash": "HASH"
         },
         personalInfo = {
             "authorName": "Paul Hendrick",
@@ -21,10 +14,8 @@
             "linkedInUser": "paul-hendrick-3ab489168",
             "email": "hello@paulhendrick.dev"
         };
-
     const {month, day, year, commitHash} = buildInfo;
     const {authorName, repoName, gitHubUser, twitterUser, linkedInUser, email} = personalInfo;
-
 </script>
 
 <footer>
