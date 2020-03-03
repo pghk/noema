@@ -69,6 +69,7 @@
         border-top-width: thin;
         display: grid;
         grid-template-rows: 3rem 2.5rem min-content;
+        align-self: end;
     }
     footer a {
         color: inherit;

@@ -15,9 +15,6 @@
 		padding: 2em;
 		box-sizing: border-box;
 	}
-	footer {
-		justify-self: end;
-	}
 </style>
 
 <Header />
