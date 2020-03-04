@@ -6,7 +6,12 @@ const git = cmd => execSync(`git ${cmd}`).toString().trim();
 const commitHash = git('rev-parse HEAD');
 const commitDate = new Date(git('log -1 --format="%ci"'));
 
-const format = (date, options) => date.toLocaleDateString('en-US', options);
+const format = (date, options) => {
+    return date.toLocaleDateString(
+        'en-US',
+        Object.assign(options, {timeZone: 'America/New_York'})
+    );
+};
 
 const buildInfo = {
     "MONTH": format(commitDate, {month: '2-digit'}),
