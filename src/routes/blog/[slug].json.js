@@ -5,6 +5,23 @@ let mdConfig = {
 };
 
 let mdContainers = {
+	'info': {
+		validate: function(params) {
+			return params.trim().match(/^infobox\s+(.*)$/);
+		},
+		render: function (tokens, idx) {
+			var m = tokens[idx].info.trim().match(/^infobox\s+(.*)$/);
+
+			if (tokens[idx].nesting === 1) {
+				// opening tag
+				return `<div class="infobox ${md.utils.escapeHtml(m[1])}">\n`;
+
+			} else {
+				// closing tag
+				return '</div>\n';
+			}
+		}
+	},
 	'details': {
 		validate: function(params) {
 			return params.trim().match(/^details\s+(.*)$/);
@@ -28,7 +45,8 @@ let md = require('markdown-it')(mdConfig)
 	.use(require('markdown-it-footnote'))
 	.use(require('markdown-it-sub'))
 	.use(require('markdown-it-sup'))
-	.use(require('markdown-it-container'), 'details', mdContainers.details);
+	.use(require('markdown-it-container'), 'details', mdContainers.details)
+	.use(require('markdown-it-container'), 'info', mdContainers.info);
 
 
 import posts from './_posts.js';

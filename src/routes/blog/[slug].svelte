@@ -48,6 +48,31 @@
 	.content :global(li) {
 		margin: 0 0 0.5em 0;
 	}
+
+	.content :global(.infobox) {
+		display: block;
+		border: thin solid;
+		@apply rounded;
+		margin: 1rem;
+		padding: 1rem;
+	}
+
+	.content :global(.infobox.success) {
+		@apply bg-color-success-3;
+		@apply border-color-success-4;
+	}
+	.content :global(.infobox.error) {
+		@apply bg-color-error-3;
+		@apply border-color-error-4;
+	}
+	.content :global(.infobox.info) {
+		@apply bg-color-info-3;
+		@apply border-color-info-4;
+	}
+	.content :global(.infobox.warning) {
+		@apply bg-color-warn-3;
+		@apply border-color-warn-4;
+	}
 </style>
 
 <svelte:head>
