@@ -1,4 +1,8 @@
-let md = require('markdown-it')('commonmark');
+let md = require('markdown-it')({
+	html: true,
+	linkify: true,
+	typographer: true,
+});
 import posts from './_posts.js';
 
 const lookup = new Map();
