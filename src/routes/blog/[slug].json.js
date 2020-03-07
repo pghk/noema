@@ -3,10 +3,33 @@ let mdConfig = {
 	linkify: true,
 	typographer: true,
 };
+
+let mdContainers = {
+	'details': {
+		validate: function(params) {
+			return params.trim().match(/^details\s+(.*)$/);
+		},
+		render: function (tokens, idx) {
+			var m = tokens[idx].info.trim().match(/^details\s+(.*)$/);
+
+			if (tokens[idx].nesting === 1) {
+				// opening tag
+				return '<details><summary>' + md.utils.escapeHtml(m[1]) + '</summary>\n';
+
+			} else {
+				// closing tag
+				return '</details>\n';
+			}
+		}
+	}
+};
+
 let md = require('markdown-it')(mdConfig)
 	.use(require('markdown-it-footnote'))
 	.use(require('markdown-it-sub'))
-	.use(require('markdown-it-sup'));
+	.use(require('markdown-it-sup'))
+	.use(require('markdown-it-container'), 'details', mdContainers.details);
+
 
 import posts from './_posts.js';
 
