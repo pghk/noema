@@ -1,7 +1,20 @@
+import hljs from 'highlight.js';
+
 let mdConfig = {
 	html: true,
 	linkify: true,
 	typographer: true,
+	highlight: function (str, lang) {
+		if (lang && hljs.getLanguage(lang)) {
+			try {
+				return '<pre class="hljs"><code>' +
+					hljs.highlight(lang, str, true).value +
+					'</code></pre>';
+			} catch (__) {}
+		}
+
+		return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
+	}
 };
 
 let mdContainers = {
@@ -47,7 +60,6 @@ let md = require('markdown-it')(mdConfig)
 	.use(require('markdown-it-sup'))
 	.use(require('markdown-it-container'), 'details', mdContainers.details)
 	.use(require('markdown-it-container'), 'info', mdContainers.info);
-
 
 import posts from './_posts.js';
 
