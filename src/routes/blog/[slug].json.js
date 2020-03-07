@@ -1,8 +1,13 @@
-let md = require('markdown-it')({
+let mdConfig = {
 	html: true,
 	linkify: true,
 	typographer: true,
-});
+};
+let md = require('markdown-it')(mdConfig)
+	.use(require('markdown-it-footnote'))
+	.use(require('markdown-it-sub'))
+	.use(require('markdown-it-sup'));
+
 import posts from './_posts.js';
 
 const lookup = new Map();
