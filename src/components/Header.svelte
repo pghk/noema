@@ -26,6 +26,7 @@
         text-transform: uppercase;
         letter-spacing: 1.5vw;
         @apply text-xs;
+        max-width: none;
     }
 
     .tagline::before {

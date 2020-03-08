@@ -9,11 +9,9 @@
 <style>
 	main {
 		position: relative;
-		width: 100%;
-		max-width: 56em;
+		width: max-content;
+		max-width: calc(100vw - var(--wizardry));
 		justify-self: center;
-		padding: 2em;
-		box-sizing: border-box;
 	}
 </style>
 
