@@ -1,7 +1,6 @@
 import hljs from 'highlight.js';
 
 let mdConfig = {
-	html: true,
 	linkify: true,
 	typographer: true,
 	highlight: function (str, lang) {
