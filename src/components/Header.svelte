@@ -4,18 +4,18 @@
 
 <style>
      header {
-        height: 100%;
         display: grid;
         grid-template-rows: 3fr 2fr;
+        grid-template-columns: minmax(65vw, 90vw);
         @apply text-color-a-5;
         fill: currentColor;
-        align-self: center;
         justify-self: center;
-        margin: 0 2rem 1rem 2rem;
-        max-width: 42rem;
+        padding: var(--s4) var(--s1) var(--s3) var(--s1);
     }
     header :global(#header-logo) {
         align-self: end;
+        justify-self: center;
+        max-width: calc( var(--s5) * 3.5 );
     }
     .tagline {
         align-self: center;
@@ -24,7 +24,7 @@
         font-weight: 400;
         font-variant: small-caps;
         text-transform: uppercase;
-        letter-spacing: 1.5vw;
+        letter-spacing: var(--s-1);
         @apply text-xs;
         max-width: none;
     }
