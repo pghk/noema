@@ -3,11 +3,26 @@
 @tailwind utilities;
 
 
-html {
+:root {
     --magic: calc((4em + 4vw) / 5);
     --wizardry: calc(((var(--magic) - 20px) - (var(--magic) * 1.5)) / -1);
     font-size: var(--magic);
     line-height: var(--wizardry);
+    --measure: 70ch;
+}
+
+* {
+    max-width: var(--measure);
+}
+
+html,
+body,
+div,
+header,
+nav,
+main,
+footer {
+    max-width: none;
 }
 
 body {
@@ -39,6 +54,10 @@ a {
     @apply text-color-info-5;
 }
 
+pre {
+    overflow: auto;
+    @apply rounded;
+}
 code {
     @apply font-mono;
     font-size: calc(1em - 2px);
