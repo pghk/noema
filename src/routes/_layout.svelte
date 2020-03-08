@@ -10,7 +10,7 @@
 	main {
 		position: relative;
 		width: max-content;
-		max-width: calc(100vw - var(--wizardry));
+		max-width: calc(100vw - var(--s1));
 		justify-self: center;
 	}
 </style>
