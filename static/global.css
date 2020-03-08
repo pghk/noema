@@ -57,15 +57,28 @@ a {
 pre {
     overflow: auto;
     @apply rounded;
+    @apply bg-color-light-3;
+    padding: 0.5em;
+    margin: 1rem;
 }
+pre.hljs {
+    margin: unset;
+}
+
 code {
     @apply font-mono;
     font-size: calc(1em - 2px);
-    color: #555;
-    background-color: #f0f0f0;
-    padding: 0.2em 0.4em;
+    padding: .4rem .4rem .1rem .4rem;
+    @apply bg-color-light-3;
     border-radius: 2px;
 }
+pre.hljs code {
+    background: inherit;
+}
+pre code {
+    padding: unset;
+}
+
 
 .infobox {
     display: block;
