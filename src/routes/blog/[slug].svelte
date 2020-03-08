@@ -34,6 +34,13 @@
 	.blog-post :global(li) {
 		margin: 0 0 0.5em 0;
 	}
+
+	:global(.hljs-number) {
+		color: #CC83BF;
+	}
+	:global(.hljs-quote), :global(.hljs-comment) {
+		color: #949CAC;
+	}
 </style>
 
 <svelte:head>
