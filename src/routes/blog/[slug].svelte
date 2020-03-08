@@ -32,47 +32,24 @@
 		padding: 0;
 	}
 
-	.content :global(ol) {
+	.blog-post :global(ol) {
 		list-style: decimal;
 	}
 
-	.content :global(ul) {
+	.blog-post :global(ul) {
 		list-style: disc;
 	}
 
-	.content :global(ol), .content :global(ul) {
+	.blog-post :global(ol), .blog-post :global(ul) {
 		margin-top: 1rem;
 		padding-left: 2rem;
 	}
 
-	.content :global(li) {
+	.blog-post :global(li) {
 		margin: 0 0 0.5em 0;
 	}
 
-	.content :global(.infobox) {
-		display: block;
-		border: thin solid;
-		@apply rounded;
-		margin: 1rem;
-		padding: 1rem;
-	}
 
-	.content :global(.infobox.success) {
-		@apply bg-color-success-3;
-		@apply border-color-success-4;
-	}
-	.content :global(.infobox.error) {
-		@apply bg-color-error-3;
-		@apply border-color-error-4;
-	}
-	.content :global(.infobox.info) {
-		@apply bg-color-info-3;
-		@apply border-color-info-4;
-	}
-	.content :global(.infobox.warning) {
-		@apply bg-color-warn-3;
-		@apply border-color-warn-4;
-	}
 </style>
 
 <svelte:head>
@@ -80,8 +57,9 @@
 	<meta name="Description" content="Todo: add this field to the blog table">
 </svelte:head>
 
-<h1>{post.fields.title}</h1>
-
-<div class='content'>
-	{@html post.fields.body}
-</div>
+<article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
+	<h1 itemprop="name">{post.fields.title}</h1>
+	<div itemprop="articleBody">
+		{@html post.fields.body}
+	</div>
+</article>
