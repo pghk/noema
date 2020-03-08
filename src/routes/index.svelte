@@ -1,9 +1,3 @@
-<style>
-	h1 {
-		@apply text-2xl;
-	}
-</style>
-
 <svelte:head>
 	<title>Paul Hendrick</title>
 	<meta name="Description" content="A fine web development.">

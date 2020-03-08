@@ -10,15 +10,6 @@
 	export let posts;
 </script>
 
-<style>
-	h1 {
-		@apply text-2xl;
-	}
-	ul {
-		margin: 0 0 1em 0;
-	}
-</style>
-
 <svelte:head>
 	<title>pghk | blog</title>
 	<meta name="Description" content="Title: Meandrous Musings, Author: Paul G. Hendrick">
