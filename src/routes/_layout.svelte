@@ -12,6 +12,7 @@
 		width: max-content;
 		max-width: calc(100vw - var(--s1));
 		justify-self: center;
+		margin-top: var(--s1);
 	}
 </style>
 

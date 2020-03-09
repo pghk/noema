@@ -50,7 +50,7 @@
 
 <article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
 	<h1 itemprop="name">{post.fields.title}</h1>
-	<div itemprop="articleBody">
+	<div class="post-body" itemprop="articleBody">
 		{@html post.fields.body}
 	</div>
 </article>
