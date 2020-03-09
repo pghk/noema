@@ -76,6 +76,7 @@
         display: grid;
         grid-template-rows: 3rem 2.5rem min-content;
         align-self: end;
+        margin-top: var(--s0);
     }
     footer a {
         color: inherit;

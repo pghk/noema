@@ -6,20 +6,19 @@
 </script>
 
 <style>
-	h1, p {
-		margin: 0 auto;
-		@apply font-mono;
-	}
 
 	h1 {
 		@apply text-color-error-5;
 		@apply text-6xl;
 		font-variation-settings: 'wght' 900;
-		margin: 0 0 0.5em 0;
 	}
 
-	p {
-		margin: 1em auto;
+	h1, p {
+		@apply font-mono;
+		text-align: center;
+	}
+	pre {
+		margin: var(--s0) auto;
 	}
 </style>
 
@@ -32,5 +31,5 @@
 <p>{error.message}</p>
 
 {#if dev && error.stack}
-	<pre>{error.stack}</pre>
+	<pre><code>{error.stack}</code></pre>
 {/if}

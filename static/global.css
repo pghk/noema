@@ -48,14 +48,18 @@ body {
     @apply font-serif;
 }
 
+.main > * + *, [class$="-body"] > * + * {
+    margin-top: var(--s2);
+}
+
 h1, h2, h3, h4, h5, h6 {
-    margin: 0 0 0.5em 0;
     @apply font-bold;
     font-variation-settings: 'wght' 800;
 }
 
 h1 {
     @apply text-2xl;
+    margin: var(--s3) 0;
 }
 
 h2 {
@@ -114,7 +118,6 @@ pre code {
     display: block;
     border: thin solid;
     @apply rounded;
-    margin: 1rem;
     padding: 1rem;
 }
 
