@@ -41,6 +41,13 @@
 	:global(.hljs-quote), :global(.hljs-comment) {
 		color: #949CAC;
 	}
+
+	:global(pre.hljs) {
+		margin: unset;
+	}
+	:global(pre.hljs code) {
+		background: inherit;
+	}
 </style>
 
 <svelte:head>
