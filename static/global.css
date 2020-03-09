@@ -107,27 +107,3 @@ pre code {
     padding: unset;
 }
 
-
-.infobox {
-    display: block;
-    border: thin solid;
-    @apply rounded;
-    padding: 1rem;
-}
-
-.infobox.success {
-    @apply bg-color-success-3;
-    @apply border-color-success-4;
-}
-.infobox.error {
-    @apply bg-color-error-3;
-    @apply border-color-error-4;
-}
-.infobox.info {
-    @apply bg-color-info-3;
-    @apply border-color-info-4;
-}
-.infobox.warning {
-    @apply bg-color-warn-3;
-    @apply border-color-warn-4;
-}

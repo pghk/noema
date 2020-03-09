@@ -48,6 +48,30 @@
 	:global(pre.hljs code) {
 		background: inherit;
 	}
+
+	:global(.infobox) {
+		display: block;
+		border: thin solid;
+		@apply rounded;
+		padding: 1rem;
+	}
+
+	:global(.infobox.success) {
+		@apply bg-color-success-3;
+		@apply border-color-success-4;
+	}
+	:global(.infobox.error) {
+		@apply bg-color-error-3;
+		@apply border-color-error-4;
+	}
+	:global(.infobox.info) {
+		@apply bg-color-info-3;
+		@apply border-color-info-4;
+	}
+	:global(.infobox.warning) {
+		@apply bg-color-warn-3;
+		@apply border-color-warn-4;
+	}
 </style>
 
 <svelte:head>
