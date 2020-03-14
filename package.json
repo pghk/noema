@@ -22,7 +22,10 @@
     "test": "mocha test/unit/**/*.test.js",
     "build": "NODE_ENV=production npm run build_all",
     "start": "node __sapper__/build",
-    "export": "sapper export"
+    "export": "sapper export",
+    "dev:serve": "npx serve __sapper__/export",
+    "dev:export": "run-s build:* export dev:serve",
+    "dev:review": "NODE_ENV=development npm run hydrate; NODE_ENV=production npm run dev:export"
   },
   "repository": {
     "type": "git",
