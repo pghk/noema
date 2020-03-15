@@ -24,7 +24,7 @@
         font-weight: 400;
         font-variant: small-caps;
         text-transform: uppercase;
-        letter-spacing: var(--s-1);
+        letter-spacing: 1.5vw;
         @apply text-xs;
         max-width: none;
     }
