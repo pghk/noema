@@ -72,6 +72,19 @@
 		@apply bg-color-warn-3;
 		@apply border-color-warn-4;
 	}
+	:global(blockquote) {
+		display: block;
+		margin-block-start: var(--s0);
+		margin-block-end: var(--s0);
+		margin-inline-start: var(--s1);
+		margin-inline-end: var(--s1);
+		border-left: solid thick;
+		@apply border-color-b-3;
+		padding-left: var(--s-1);
+		font-style: italic;
+		font-weight: 300;
+		@apply text-sm;
+	}
 </style>
 
 <svelte:head>
