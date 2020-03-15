@@ -88,4 +88,8 @@ pre code {
     padding: unset;
 }
 
+hr {
+    border-top-width: 1px;
+}
+
 /* purgecss end ignore */
