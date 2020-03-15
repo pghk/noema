@@ -11,9 +11,9 @@ ITALIC_SERIF="SourceSerifVariable-Italic"
 SANS_PARAMS=(--layout-features=c2sc --no-hinting --desubroutinize)
 SANS_SET=(--unicodes=U+41-5A,U+7B-7E)
 
-# Serif subset: upper-and-lowercase glyphs & kerning
+# Serif subset: 0, uppercase, and lowercase glyphs - with kerning
 SERIF_PARAMS=(--layout-features=kern --no-hinting --desubroutinize)
-SERIF_SET=(--unicodes=U+41-5A,U+61-7A)
+SERIF_SET=(--unicodes=U+30,U+41-5A,U+61-7A)
 
 # Optimized set: All features & Latin glyphs
 OPT_FULL=(--unicodes=$(glyphhanger --LATIN) --layout-features='*')
