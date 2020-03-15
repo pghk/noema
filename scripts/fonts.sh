@@ -22,7 +22,7 @@ OPT_FULL=(--unicodes=$(glyphhanger --LATIN) --layout-features='*')
 # Helps assemble common command options
 function subset_base() {
   local FILE="${1}/src/${3}.ttf"
-  echo "$FILE --output-file=${1}/build/${2}.${3}.${4} --flavor=${4} ${5}"
+  echo "$FILE --output-file=${1}/build/${2}.${3}.${4} --flavor=${4} ${5} --obfuscate-names"
 }
 
 echo "Generating font files..."
