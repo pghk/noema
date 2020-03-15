@@ -32,7 +32,7 @@
 
 	<style>
 		@font-face{
-			font-family: 'Source Sans Variable';
+			font-family: 'Subset Source Sans Variable';
 			font-weight: 200 900;
 			font-style: normal;
 			font-stretch: normal;
@@ -40,7 +40,7 @@
 			font-display: swap;
 		}
 		@font-face{
-			font-family: 'Source Serif Variable';
+			font-family: 'Subset Source Serif Variable';
 			font-weight: 200 900;
 			font-style: normal;
 			font-stretch: normal;
@@ -80,7 +80,7 @@
 				'weight': '200 900',
 			 	'style': (style === 'Roman') ? 'normal' : 'italic',
 			};
-			return new FontFace(name, source, descriptors);
+			return new FontFace(`Subset ${name}`, source, descriptors);
 		};
 		if ("fonts" in document) {
 			Promise.all([
