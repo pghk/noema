@@ -27,12 +27,12 @@
 	}
 
 	.blog-post :global(ol), .blog-post :global(ul) {
-		margin-top: 1rem;
-		padding-left: 2rem;
+		padding-left: var(--s2);
+		margin: var(--s-1) 0;
 	}
 
 	.blog-post :global(li) {
-		margin: 0 0 0.5em 0;
+		margin-bottom: var(--s-1);
 	}
 
 	:global(.hljs-number) {
