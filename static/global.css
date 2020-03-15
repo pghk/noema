@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 /* purgecss start ignore */
+
 :root {
     --magic: calc((4em + 4vw) / 5);
     --φ: 1.6180339887498948482;
@@ -57,36 +58,16 @@ h1, h2, h3, h4, h5, h6 {
     font-variation-settings: 'wght' 800;
 }
 
-h1 {
-    @apply text-2xl;
-    margin: var(--s3) 0;
-}
+h1, h2 { text-align: center; }
 
-h2 {
-    @apply text-xl;
-}
-h1, h2 {
-    text-align: center;
-}
+h1 { @apply text-2xl; margin: var(--s3) 0; }
+h2 { @apply text-xl; }
+h3 { @apply text-lg; }
+h4 { @apply text-base; }
+h5 { @apply text-sm; }
+h6 { @apply text-xs; }
 
-h3 {
-    @apply text-lg;
-}
-h4 {
-    @apply text-base;
-}
-
-h5 {
-    @apply text-sm;
-}
-
-h6 {
-    @apply text-xs;
-}
-
-a {
-    @apply text-color-info-5;
-}
+a { @apply text-color-info-5; }
 
 pre {
     overflow: auto;
@@ -106,4 +87,5 @@ code {
 pre code {
     padding: unset;
 }
+
 /* purgecss end ignore */
