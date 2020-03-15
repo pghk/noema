@@ -85,6 +85,27 @@
 		font-weight: 300;
 		@apply text-sm;
 	}
+
+	:global(table) {
+		@apply font-sans;
+		margin: 0 auto;
+	}
+	:global(thead) {
+		@apply bg-color-dark-6;
+		@apply text-color-light-3;
+	}
+	:global(tbody) {
+		@apply text-sm;
+	}
+	:global(tbody) :global(tr:nth-child(odd)) {
+		@apply bg-color-dark-1;
+	}
+	:global(td), :global(th) {
+		border: solid thin;
+		@apply border-color-dark-2;
+		padding: var(--s-1);
+	}
+
 </style>
 
 <svelte:head>
