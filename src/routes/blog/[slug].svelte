@@ -17,62 +17,62 @@
 	export let post;
 </script>
 
-<style>
-	.blog-post :global(ol) {
+<style global>
+	.blog-post ol {
 		list-style: decimal;
 	}
 
-	.blog-post :global(ul) {
+	.blog-post ul {
 		list-style: disc;
 	}
 
-	.blog-post :global(ol), .blog-post :global(ul) {
+	.blog-post ol, .blog-post ul {
 		padding-left: var(--s2);
 		margin: var(--s-1) 0;
 	}
 
-	.blog-post :global(li) {
+	.blog-post li {
 		margin-bottom: var(--s-1);
 	}
 
-	:global(.hljs-number) {
+	.hljs-number {
 		color: #CC83BF;
 	}
-	:global(.hljs-quote), :global(.hljs-comment) {
+	.hljs-quote, .hljs-comment {
 		color: #949CAC;
 	}
 
-	:global(pre.hljs) {
+	pre.hljs {
 		margin: unset;
 	}
-	:global(pre.hljs code) {
+	pre.hljs code {
 		background: inherit;
 	}
 
-	:global(.infobox) {
+	.infobox {
 		display: block;
 		border: thin solid;
 		@apply rounded;
 		padding: 1rem;
 	}
 
-	:global(.infobox.success) {
+	.infobox.success {
 		@apply bg-color-success-3;
 		@apply border-color-success-4;
 	}
-	:global(.infobox.error) {
+	.infobox.error {
 		@apply bg-color-error-3;
 		@apply border-color-error-4;
 	}
-	:global(.infobox.info) {
+	.infobox.info {
 		@apply bg-color-info-3;
 		@apply border-color-info-4;
 	}
-	:global(.infobox.warning) {
+	.infobox.warning {
 		@apply bg-color-warn-3;
 		@apply border-color-warn-4;
 	}
-	:global(blockquote) {
+	blockquote {
 		display: block;
 		margin-block-start: var(--s0);
 		margin-block-end: var(--s0);
@@ -86,21 +86,21 @@
 		@apply text-sm;
 	}
 
-	:global(table) {
+	table {
 		@apply font-sans;
 		margin: 0 auto;
 	}
-	:global(thead) {
+	thead {
 		@apply bg-color-dark-6;
 		@apply text-color-light-3;
 	}
-	:global(tbody) {
+	tbody {
 		@apply text-sm;
 	}
-	:global(tbody) :global(tr:nth-child(odd)) {
+	tbody tr:nth-child(odd) {
 		@apply bg-color-dark-1;
 	}
-	:global(td), :global(th) {
+	td, th {
 		border: solid thin;
 		@apply border-color-dark-2;
 		padding: var(--s-1);
