@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
-FONT_DIR='./static/fonts'
+FONT_DIR='../static/fonts'
+if [ ! -d ${FONT_DIR}/build ]; then mkdir ${FONT_DIR}/build; fi
 
 ROMAN_SANS="SourceSansVariable-Roman"
 ROMAN_SERIF="SourceSerifVariable-Roman"
