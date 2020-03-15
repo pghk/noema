@@ -15,8 +15,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'sans': ['Source Sans Variable', ...fontFamily.sans],
-        'serif': ['Source Serif Variable', ...fontFamily.serif],
+        'sans': ['Subset Source Sans Variable', ...fontFamily.sans],
+        'serif': ['Subset Source Serif Variable', ...fontFamily.serif],
         'mono': ['Consolas', ...fontFamily.mono],
       },
       colors: {
