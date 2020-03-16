@@ -15,6 +15,17 @@
 
 <script>
 	export let post;
+	// Anchor hash workaround - https://github.com/sveltejs/sapper/issues/904
+	import { onMount } from 'svelte';
+	onMount( () => {
+		const footnotes = '.footnote-ref a, a.footnote-backref';
+		const anchors = document.querySelectorAll( footnotes );
+		anchors.forEach(a => {
+			if (a.hash) {
+				a.href = window.location.origin + window.location.pathname + a.hash;
+			}
+		});
+	});
 </script>
 
 <style global>
