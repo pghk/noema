@@ -60,6 +60,15 @@ let md = require('markdown-it')(mdConfig)
 	.use(require('markdown-it-container'), 'details', mdContainers.details)
 	.use(require('markdown-it-container'), 'info', mdContainers.info);
 
+md.renderer.rules.footnote_anchor = (tokens, idx, options, env, slf) => {
+	let id = slf.rules.footnote_anchor_name(tokens, idx, options, env, slf);
+	if (tokens[idx].meta.subId > 0) {
+		id += ':' + tokens[idx].meta.subId;
+	}
+	/* ⤴  as HTML */
+	return ' <a href="#fnref' + id + '" class="footnote-backref">&#10548</a>';
+};
+
 import posts from './_posts.js';
 
 const lookup = new Map();
