@@ -130,9 +130,6 @@
 		margin-left: auto;
 		padding-left: var(--s1);
 	}
-	.footnote-backref {
-		@apply font-serif;
-	}
 	.footnotes li, .footnotes p {
 		-webkit-column-break-inside: avoid;
 		page-break-inside: avoid;
