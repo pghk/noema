@@ -124,6 +124,10 @@
 		column-width: 45ch;
 		max-width: none;
 	}
+	sup.footnote-ref {
+		font-variant-position: super;
+		top: -0.25rem;
+	}
 	.footnotes ol {
 		margin-top: unset;
 		margin-right: auto;
