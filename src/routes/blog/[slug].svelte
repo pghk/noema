@@ -105,6 +105,28 @@
 		@apply border-color-dark-2;
 		padding: var(--s-1);
 	}
+	.footnotes {
+		margin-top: var(--s1);
+		margin-bottom: var(--s0);
+		@apply font-sans;
+		@apply text-xs;
+		column-width: 45ch;
+		max-width: none;
+	}
+	.footnotes ol {
+		margin-top: unset;
+		margin-right: auto;
+		margin-left: auto;
+		padding-left: var(--s1);
+	}
+	.footnote-backref {
+		@apply font-serif;
+	}
+	.footnotes li, .footnotes p {
+		-webkit-column-break-inside: avoid;
+		page-break-inside: avoid;
+		break-inside: avoid;
+	}
 
 </style>
 
