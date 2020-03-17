@@ -66,7 +66,7 @@ md.renderer.rules.footnote_anchor = (tokens, idx, options, env, slf) => {
 		id += ':' + tokens[idx].meta.subId;
 	}
 	/* ⤴  as HTML */
-	return ' <a href="#fnref' + id + '" class="footnote-backref">&#10548</a>';
+	return ' <a href="#fnref' + id + '" class="footnote-backref">&#10548;</a>';
 };
 
 import posts from './_posts.js';
