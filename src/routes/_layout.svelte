@@ -13,6 +13,7 @@
 		max-width: calc(100vw - var(--s1));
 		justify-self: center;
 		margin-top: var(--s1);
+		margin-bottom: var(--s2);
 	}
 </style>
 
