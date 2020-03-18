@@ -8,7 +8,6 @@
   },
   "scripts": {
     "clean": "rm -rf data __sapper__ static/index.css",
-    "hydrate": "node -r dotenv/config scripts/build.js",
     "build:tailwind": "postcss static/global.css -o static/index.css",
     "build:sapper": "sapper build",
     "build_all": "run-s hydrate build:*",
@@ -17,15 +16,15 @@
     "test:open": "cypress open",
     "watch:tailwind": "postcss static/global.css -o static/index.css -w",
     "watch:dev": "sapper dev --hot=false",
-    "dev:start": "run-p hydrate watch:*",
-    "dev": "NODE_ENV=development npm run dev:start",
+    "dev:start": "run-p watch:*",
+    "dev": "node scripts/keychain.js dev:start",
     "test": "mocha test/unit/**/*.test.js",
     "build": "NODE_ENV=production npm run build_all",
     "start": "node __sapper__/build",
     "export": "sapper export",
     "dev:serve": "npx serve __sapper__/export",
     "dev:export": "run-s build:* export dev:serve",
-    "dev:review": "NODE_ENV=development npm run hydrate; NODE_ENV=production npm run dev:export"
+    "dev:review": "NODE_ENV=production node scripts/keychain.js dev:export"
   },
   "repository": {
     "type": "git",
