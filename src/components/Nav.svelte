@@ -58,7 +58,7 @@
   a {
     @apply bg-color-light-1;
     text-decoration: none;
-    padding: 0 var(--s-3);
+    padding: 0 var(--s-2);
     display: inline-block;
     color: inherit;
     background-repeat: no-repeat;
