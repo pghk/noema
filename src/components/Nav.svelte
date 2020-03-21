@@ -73,7 +73,7 @@
     transition: all .1s ease-in-out;
   }
 
-  a:hover span {
+  a:hover span, a[aria-current] span  {
     opacity: 1;
   }
 
@@ -86,7 +86,7 @@
     transition: all .1s ease-in-out;
   }
 
-  a:hover svg {
+  a:hover svg, a[aria-current] svg {
     opacity: 0;
   }
 </style>
