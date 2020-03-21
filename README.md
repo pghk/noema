@@ -29,6 +29,5 @@ Auto publishing of deploys in Netlify is not enabled. This will likely remain a 
 - [ ] Sort out NPM dependencies: Netlify does not need to install Cypress
 - [ ] Store Cypress-generated build artifacts somewhere, for better review of E2E test results
 - [ ] Front page content section: Dynamic summary/preview of each section
-- [ ] Header: section icons to switch to text on hover (or active path, where applicable)
 - [ ] Header: different tagline for each section path?
 - [ ] Actual content 😅
