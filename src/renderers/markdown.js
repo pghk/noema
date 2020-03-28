@@ -76,18 +76,28 @@ const hexColorDecorator = (state) => {
     ];
 
     // inner wrapper
-    token = state.push('css_open', 'span', 1);
+    token = state.push('svg_open', 'svg', 1);
     token.attrs = [
         ['class', 'hex-color-indicator'],
-        ['style', `color:#${content}`]
+        ['aria-hidden', true],
+        ['style', 'display: inline-block; height: 1rem;'],
+        ['viewBox', '0 0 100 100'],
     ];
 
-    // black large circle
-    token = state.push('text', '', 0);
-    token.content = "\u2B24";
+    token = state.push('circle_open', 'circle', 1);
+    token.attrs = [
+        ['cx', '50'],
+        ['cy', '50'],
+        ['r', '40'],
+        ['stroke', 'currentColor'],
+        ['stroke-width', '5'],
+        ['stroke-opacity', '20%'],
+        ['fill', `#${content}`]
+    ];
+    token = state.push('circle_close', 'circle', -1);
 
     // close inner wrapper
-    token = state.push('css_close', 'span', -1);
+    token = state.push('svg_close', 'svg', -1);
 
     // content itself is unchanged
     token = state.push('text', '', 0);
