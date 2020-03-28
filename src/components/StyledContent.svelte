@@ -130,5 +130,15 @@
         page-break-inside: avoid;
         break-inside: avoid;
     }
+    .hex-color-code {
+        @apply font-mono;
+        text-transform: lowercase;
+        font-size: smaller;
+    }
+    .hex-color-indicator {
+        margin-inline-end: var(--s-3);
+        top: -.1rem;
+        position: relative;
+    }
 
 </style>
