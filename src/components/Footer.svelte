@@ -11,7 +11,7 @@
             "repoName": "noema",
             "gitHubUser": "pghk",
             "twitterUser": "spacechip",
-            "linkedInUser": "paul-hendrick-3ab489168",
+            "linkedInUser": "pghk",
             "email": "hello@paulhendrick.dev"
         };
     const {month, day, year, commitHash} = buildInfo;
