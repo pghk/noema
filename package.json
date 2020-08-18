@@ -9,14 +9,25 @@
     "build": "sapper build --legacy",
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
+    "test:jest": "jest src",
+    "jest:watch": "npm run test:jest -- --watch",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "test": "jest src",
-    "test:watch": "npm run test -- --watch",
-    "test:e2e": "run-p --race dev cy:run",
+    "test:cy": "run-p --race dev cy:run",
+    "test": "npm run test:jest && npm run test:cy",
+    "pretest": "rm -rf .nyc_output || true",
+    "posttest": "npm run report:combined",
+    "mkdir:reports": "mkdir reports || true",
+    "precopy:reports": "npm run mkdir:reports",
+    "copy:reports": "cp coverage/cypress/coverage-final.json reports/from-cypress.json && cp coverage/jest/coverage-final.json reports/from-jest.json",
+    "precombine:reports": "npm run copy:reports && mkdir .nyc_output || true",
+    "combine:reports": "npx nyc merge reports && mv coverage.json .nyc_output/out.json",
+    "prereport:combined": "npm run combine:reports",
+    "report:combined": "npx nyc report --reporter lcov --reporter text --report-dir coverage",
+    "review": "open coverage/lcov-report/index.html",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "coverage:report": "nyc report --reporter=lcov"
+    "clean": "rm -rf .nyc_output coverage reports __sapper__"
   },
   "dependencies": {
     "compression": "^1.7.1",
@@ -61,6 +72,8 @@
     "svelte-preprocess": "^4.0.12"
   },
   "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "coverage/jest",
     "transform": {
       "^.+\\.js$": "babel-jest",
       "^.+\\.svelte$": "svelte-jester"
@@ -84,6 +97,7 @@
   },
   "nyc": {
     "cache": false,
+    "report-dir": "coverage/cypress",
     "extension": [
       ".js",
       ".svelte"

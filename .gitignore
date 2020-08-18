@@ -3,9 +3,11 @@
 /src/node_modules/@sapper/
 yarn-error.log
 /cypress/screenshots/
+/cypress/videos/
 /__sapper__/
 .env
 /static/index.css
 /static/fonts/build
 /coverage/
-.nyc_output
+/.nyc_output/
+/reports/
