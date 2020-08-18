@@ -8,3 +8,4 @@ yarn-error.log
 /static/index.css
 /static/fonts/build
 /coverage/
+.nyc_output
