@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - lts/*
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
+      - libsecret-1-dev
+cache:
+  npm: true
+  directories:
+    # folder with Cypress binary
+    - ~/.cache
+jobs:
+  include:
+    - stage: Local Tests
+      if: env(TEST_TARGET) IS blank
+      script: npm test
+#    - stage: Live Tests
+#      if: env(TEST_TARGET) IS present
+#      before_script: echo "running E2E tests against $TEST_TARGET at $CYPRESS_baseUrl"
+#      script: npm run test:cypress
