@@ -58,7 +58,7 @@ export default {
 				module: true
 			}),
 
-			dev && istanbul({
+			!legacy && istanbul({
 				extensions: ['.js', '.svelte'],
 				include: ['src/**/*'],
 				sourceMap: true,
