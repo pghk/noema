@@ -15,16 +15,13 @@ jobs:
   include:
     - stage: Local Tests
       if: env(TEST_TARGET) IS blank
-      env: NODE_ENV=development
       script: npm test
 #    - stage: Live Tests
 #      if: env(TEST_TARGET) IS present
 #      before_script: echo "running E2E tests against $TEST_TARGET at $CYPRESS_baseUrl"
 #      script: npm run test:cypress
     - stage: Build & Deploy
-      if: env(NODE_ENV) = production
-      env: NODE_ENV=production
-      script: npm run export
+      script: NODE_ENV=production npm run export
       deploy:
         provider: netlify
         site: $NETLIFY_SITE
