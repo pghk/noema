@@ -51,6 +51,7 @@
     "@storybook/svelte": "^6.0.10",
     "@testing-library/jest-dom": "^5.11.3",
     "@testing-library/svelte": "^3.0.0",
+    "axios": "^0.20.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-istanbul": "^6.0.0",
     "cypress": "^4.12.1",
