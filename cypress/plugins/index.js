@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
 //
@@ -20,7 +21,11 @@ function getConfigurationFor (env) {
   return fse.readJson(pathToConfigFile)
 }
 
+/**
+ * @type {Cypress.PluginConfig}
+ */
 module.exports = (on, config) => {
+  // `on` is used to hook into various events Cypress emits
   if (process.env.CYPRESS_baseUrl) {
     config = getConfigurationFor('remote');
   } else {
@@ -28,4 +33,5 @@ module.exports = (on, config) => {
     on('file:preprocessor', require('@cypress/code-coverage/use-babelrc'))
   }
   return config
+  // `config` is the resolved Cypress config
 }
