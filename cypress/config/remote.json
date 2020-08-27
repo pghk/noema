@@ -1,0 +1,6 @@
+{
+  "video": false,
+  "env": {
+    "coverage": false
+  }
+}
