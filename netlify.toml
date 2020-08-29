@@ -3,7 +3,4 @@
   publish = "__sapper__/export/"
   command = "npm run export"
   functions = "functions/"
-  environment = { NODE_VERSION = "lts/*" }
-
-[context."next/major"]
-  environment = { NODE_ENV = "development" }
+  environment = { NODE_VERSION = "lts/*", NODE_ENV = "development" }
