@@ -19,16 +19,4 @@ jobs:
     - stage: Live Tests
       if: env(TEST_TARGET) IS present
       before_script: echo "running E2E tests against $TEST_TARGET at $CYPRESS_baseUrl"
-      script: npm run test:cypress
-    - stage: Build & Deploy
-      script: NODE_ENV=production npm run export
-      deploy:
-        provider: netlify
-        site: $NETLIFY_SITE
-        auth: $NETLIFY_AUTH
-        message: "Travis CI build $TRAVIS_BUILD_NUMBER from $TRAVIS_BRANCH@${TRAVIS_COMMIT:0:7}"
-        edge: true # opt in to dpl v2
-        dir: "__sapper__/export"
-        functions: "functions/"
-        on:
-          branch: next/major
+      script: npm run cy:run
