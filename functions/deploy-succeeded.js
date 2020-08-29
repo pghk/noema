@@ -28,7 +28,7 @@ exports.handler = async function(event, context, callback) {
         },
         data: JSON.stringify({
             'request': {
-                'branch': 'next/major',
+                'branch': 'next/major/release',
                 'message': 'Netlify Deploy preview',
                 'config': {
                     'env': {
