@@ -29,7 +29,7 @@ exports.handler = async function(event, context, callback) {
         data: JSON.stringify({
             'request': {
                 'branch': 'next/major/release',
-                'message': 'Netlify Deploy preview',
+                'message': 'Deploy Preview @ Netlify',
                 'config': {
                     'env': {
                         'CYPRESS_baseUrl': TEST_SITE,
