@@ -43,7 +43,7 @@
     "markdown-it-sup": "^1.0.0",
     "mini-css-extract-plugin": "^0.8.2",
     "polka": "^1.0.0-next.11",
-    "postcss": "^7.0.27",
+    "postcss": "^8.2.10",
     "postcss-import": "^12.0.1",
     "sirv": "^0.4.0",
     "svelte-preprocess": "^3.5.0"
